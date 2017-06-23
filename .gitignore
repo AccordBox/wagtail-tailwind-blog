@@ -1,0 +1,3 @@
+*.py[cod]
+spiderproject/*.scrapy_log
+.DS_Store
