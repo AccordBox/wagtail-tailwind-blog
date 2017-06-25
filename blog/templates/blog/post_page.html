@@ -8,3 +8,27 @@
     <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
 
 {% endblock %}
+
+
+{% if page.tags.all.count %}
+    <div class="tags">
+        <h3>Tags</h3>
+        {% for tag in page.tags.all %}
+            <button type="button">{{ tag }}</button>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% with categories=page.categories.all %}
+    {% if categories %}
+        <h3>Categories</h3>
+        <ul>
+            {% for category in categories %}
+                <li style="display: inline">
+                    {{ category.name }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
