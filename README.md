@@ -1,5 +1,7 @@
 # Intro
 
+![](https://blog.michaelyin.info/upload/images/wagtail-tutorials-list.original.png)
+
 This project comes from wagtail tutorials created by michaelyin. I really hope it can help people quickly understand how wagtail works because it is so fantastic.
 
 1. [Wagtail vs Django-cms](https://blog.michaelyin.info/2017/06/19/python-cms-framework-review-wagtail-vs-django-cms/) You might want to know the difference between Wagtail and Django-CMS, the two most popular CMS framework in Python world. That is why I wrote this blog post to help people like me to make a good choice.
