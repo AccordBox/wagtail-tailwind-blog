@@ -1,4 +1,4 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailroutablepage_tags%}
 
 {% block content %}
     <h1>{{ page.title }}</h1>
@@ -14,7 +14,7 @@
     <div class="tags">
         <h3>Tags</h3>
         {% for tag in page.tags.all %}
-            <button type="button">{{ tag }}</button>
+            <a href="{% routablepageurl blog_page "post_by_tag" tag.slug %}">{{ tag }}</a>
         {% endfor %}
     </div>
 {% endif %}
@@ -25,7 +25,7 @@
         <ul>
             {% for category in categories %}
                 <li style="display: inline">
-                    {{ category.name }}
+                    <a href="{% routablepageurl blog_page "post_by_category" category.slug %}">{{ category.name }}</a>
                 </li>
             {% endfor %}
         </ul>
