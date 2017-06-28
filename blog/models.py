@@ -7,6 +7,8 @@ from datetime import date
 from django import forms
 from django.db import models
 
+from django.http import Http404, HttpResponse
+
 from django.utils.dateformat import DateFormat
 from django.utils.formats import date_format
 
@@ -55,6 +57,13 @@ class BlogPage(RoutablePageMixin, Page):
             self.posts = self.posts.filter(date__day=day)
             self.search_term = date_format(date(int(year), int(month), int(day)))
         return Page.serve(self, request, *args, **kwargs)
+
+    @route(r'^(\d{4})/(\d{2})/(\d{2})/(.+)/$')
+    def post_by_date_slug(self, request, year, month, day, slug, *args, **kwargs):
+        post_page = self.get_posts().filter(slug=slug).first()
+        if not post_page:
+            raise Http404
+        return Page.serve(post_page, request, *args, **kwargs)
 
     @route(r'^tag/(?P<tag>[-\w]+)/$')
     def post_by_tag(self, request, tag, *args, **kwargs):

@@ -1,4 +1,4 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags blogapp_tags %}
 
 {% block content %}
     <h1>{{ blog_page.title }}</h1>
@@ -6,7 +6,7 @@
     <div class="intro">{{ blog_page.description }}</div>
 
     {% for post in posts %}
-        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+        <h2><a href="{% post_date_url post blog_page %}">{{ post.title }}</a></h2>
     {% endfor %}
 
 {% endblock %}
