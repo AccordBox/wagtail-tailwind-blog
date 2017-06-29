@@ -1,34 +1,22 @@
-{% load wagtailcore_tags wagtailroutablepage_tags%}
+{% extends "blog/base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
+    {% if post.header_image %}
+        {% image post.header_image original as header_image %}
+        <img src="{{ header_image.url }}" class="img-responsive" ></img>
+        <hr>
+    {% endif %}
+    <h1>{{ post.title }}</h1>
+    <p>
+        <span class="glyphicon glyphicon-time"></span> {{post.date}} &nbsp;
+        <span class="glyphicon glyphicon-user"></span> {{post.owner}} &nbsp;
+        {% post_categories %}
 
-    {{ page.body|richtext }}
-
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+    </p>
+    <hr>
+    {{ post.body|richtext|truncatewords_html:40 }}
+    <hr>
+    {% post_tags_list %}
 
 {% endblock %}
-
-
-{% if page.tags.all.count %}
-    <div class="tags">
-        <h3>Tags</h3>
-        {% for tag in page.tags.all %}
-            <a href="{% routablepageurl blog_page "post_by_tag" tag.slug %}">{{ tag }}</a>
-        {% endfor %}
-    </div>
-{% endif %}
-
-{% with categories=page.categories.all %}
-    {% if categories %}
-        <h3>Categories</h3>
-        <ul>
-            {% for category in categories %}
-                <li style="display: inline">
-                    <a href="{% routablepageurl blog_page "post_by_category" category.slug %}">{{ category.name }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-{% endwith %}
-

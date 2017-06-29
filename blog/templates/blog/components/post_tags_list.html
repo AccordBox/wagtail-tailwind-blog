@@ -1,0 +1,9 @@
+{% load i18n wagtailroutablepage_tags %}
+
+<div class="tagcloud">
+    {% for tag in post_tags %}
+        <span class="label label-default">{{ tag }}</span>
+    {% endfor %}
+</div>
+
+

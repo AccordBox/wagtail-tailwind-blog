@@ -1,0 +1,13 @@
+{% load i18n wagtailroutablepage_tags %}
+
+{% if post_categories %}
+
+    <span class="glyphicon glyphicon-time"></span> 
+    {% for category in post_categories %}
+        {{ category.name }}
+    {% endfor %}
+    &nbsp;
+
+{% endif %}
+
+

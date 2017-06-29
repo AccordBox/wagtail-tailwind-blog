@@ -12,9 +12,13 @@ from django.http import Http404, HttpResponse
 from django.utils.dateformat import DateFormat
 from django.utils.formats import date_format
 
+import wagtail
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
+
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+
 from wagtail.wagtailsnippets.models import register_snippet
 
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
@@ -23,6 +27,7 @@ from modelcluster.tags import ClusterTaggableManager
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
+
 
 class BlogPage(RoutablePageMixin, Page):
     description = models.CharField(max_length=255, blank=True,)
@@ -87,9 +92,19 @@ class BlogPage(RoutablePageMixin, Page):
 class PostPage(Page):
     body = RichTextField(blank=True)
     date = models.DateTimeField(verbose_name="Post date", default=datetime.datetime.today)
+
+    header_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True, blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
     tags = ClusterTaggableManager(through='blog.BlogPageTag', blank=True)
+
     content_panels = Page.content_panels + [
+        ImageChooserPanel('header_image'),
         FieldPanel('body', classname="full"),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('tags'),
@@ -102,6 +117,7 @@ class PostPage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super(PostPage, self).get_context(request, *args, **kwargs)
         context['blog_page'] = self.blog_page
+        context['post'] = self
         return context
 
 @register_snippet

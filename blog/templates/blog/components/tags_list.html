@@ -1,0 +1,28 @@
+{% load i18n wagtailroutablepage_tags %}
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <h4>
+            Tags
+        </h4>
+    </li>
+
+    <li class="list-group-item">
+
+        {% for tag in tags %}
+            <a href="{% routablepageurl blog_page "post_by_tag" tag.slug %}">
+                <span class="label label-default">{{ tag }}</span>
+            </a>
+        {% empty %}
+            {% trans 'No tags yet' %}
+        {% endfor %}
+
+    </li> 
+
+</ul>
+
+
+
+
+
+
