@@ -2,8 +2,6 @@
 from django.template import Library, loader
 from django.core.urlresolvers import resolve
 
-# from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
-
 from ..models import BlogCategory as Category, Tag
 
 register = Library()
@@ -54,7 +52,3 @@ def post_tags_list(context):
     post_tags = post.tags.all()
 
     return {'blog_page': blog_page, 'request': context['request'], 'post_tags': post_tags}
-
-# Avoid to import endless_pagination in installed_apps and in the templates
-# register.tag('show_paginator', show_pages)
-# register.tag('paginate', paginate)

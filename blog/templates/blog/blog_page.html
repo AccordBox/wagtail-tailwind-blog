@@ -1,7 +1,9 @@
 {% extends "blog/base.html" %}
-{% load static wagtailcore_tags wagtailimages_tags blogapp_tags %}
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags el_pagination_tags %}
 
 {% block content %}
+
+    {% paginate 2 posts %}
 
     {% for post in posts %}
 
@@ -31,15 +33,8 @@
 
     {% endfor %}
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="previous">
-            <a href="#">&larr; Older</a>
-        </li>
-        <li class="next">
-            <a href="#">Newer &rarr;</a>
-        </li>
+    <ul class="pagination">
+        {% show_pages %}
     </ul>
-
 
 {% endblock %}
