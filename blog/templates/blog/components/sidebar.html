@@ -1,18 +1,19 @@
-{% load static wagtailcore_tags wagtailimages_tags blogapp_tags %}
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags wagtailroutablepage_tags %}
 
 <div class="col-md-4">
 
     <!-- Blog Search Well -->
     <div class="well">
         <h4>Blog Search</h4>
-        <div class="input-group">
-            <input type="text" class="form-control">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-search"></span>
-            </button>
-            </span>
-        </div>
+            <form role="search" method="get" class="form-search" action="{% routablepageurl blog_page "post_search" %}" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control search-query" name="q" placeholder="Search&hellip;" title="Search for:" />
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search"><span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    </span>
+                </div>
+            </form>
         <!-- /.input-group -->
     </div>
 
