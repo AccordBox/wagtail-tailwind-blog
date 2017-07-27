@@ -28,6 +28,7 @@ from taggit.models import TaggedItemBase, Tag as TaggitTag
 
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
 
+from wagtailmd.utils import MarkdownField, MarkdownPanel
 
 class BlogPage(RoutablePageMixin, Page):
     description = models.CharField(max_length=255, blank=True,)
@@ -100,7 +101,7 @@ class BlogPage(RoutablePageMixin, Page):
         return Page.serve(self, request, *args, **kwargs)
 
 class PostPage(Page):
-    body = RichTextField(blank=True)
+    body = MarkdownField()
     date = models.DateTimeField(verbose_name="Post date", default=datetime.datetime.today)
 
     header_image = models.ForeignKey(
@@ -115,7 +116,7 @@ class PostPage(Page):
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('header_image'),
-        FieldPanel('body', classname="full"),
+        MarkdownPanel("body"),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('tags'),
     ]

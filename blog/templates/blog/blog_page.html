@@ -1,5 +1,5 @@
 {% extends "blog/base.html" %}
-{% load static wagtailcore_tags wagtailimages_tags blogapp_tags el_pagination_tags %}
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags el_pagination_tags wagtailmd %}
 
 {% block content %}
 
@@ -29,11 +29,8 @@
         </p>
 
         <hr>
-        {% if post.excerpt %}
-            {{ post.excerpt|richtext }}
-        {% else %}
-            {{ post.body|richtext|truncatewords_html:40 }}
-        {% endif %}
+
+        {{ post.body|markdown|safe|truncatewords_html:40 }}
 
         <a class="btn btn-primary" href="{% post_date_url post blog_page %}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 

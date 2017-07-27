@@ -1,5 +1,5 @@
 {% extends "blog/base.html" %}
-{% load static wagtailcore_tags wagtailimages_tags blogapp_tags %}
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags wagtailmd%}
 
 {% block content %}
     {% if post.header_image %}
@@ -12,10 +12,9 @@
         <span class="glyphicon glyphicon-time"></span> {{post.date}} &nbsp;
         <span class="glyphicon glyphicon-user"></span> {{post.owner}} &nbsp;
         {% post_categories %}
-
     </p>
     <hr>
-    {{ post.body|richtext|truncatewords_html:40 }}
+    {{ post.body|markdown|safe }}
     <hr>
     {% post_tags_list %}
 
