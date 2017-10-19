@@ -17,7 +17,9 @@
 
         {% if post.header_image %}
             {% image post.header_image original as header_image %}
-            <img src="{{ header_image.url }}" class="img-responsive" ></img>
+            <a href="{% post_date_url post blog_page %}">
+              <img src="{{ header_image.url }}" class="img-responsive" ></img>
+            </a>
         {% endif %}
 
         <h2>
