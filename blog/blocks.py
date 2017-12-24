@@ -12,19 +12,18 @@ from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, FieldRowPanel,MultiFieldPanel, \
     InlinePanel, PageChooserPanel, StreamFieldPanel
 
+class ColumnBlock(blocks.StreamBlock):
+    heading = blocks.CharBlock(classname="full title")
+    paragraph = blocks.RichTextBlock()
+    image = ImageChooserBlock()
+
+    class Meta:
+        template = 'blog/blocks/block.html'
+
 class TwoColumnBlock(blocks.StructBlock):
 
-    left_column = blocks.StreamBlock([
-            ('heading', blocks.CharBlock(classname="full title")),
-            ('paragraph', blocks.RichTextBlock()),
-            ('image', ImageChooserBlock()),
-        ], icon='arrow-left', label='Left column content')
-
-    right_column = blocks.StreamBlock([
-            ('heading', blocks.CharBlock(classname="full title")),
-            ('paragraph', blocks.RichTextBlock()),
-            ('image', ImageChooserBlock()),
-        ], icon='arrow-right', label='Right column content')
+    left_column = ColumnBlock(icon='arrow-right', label='Left column content')
+    right_column = ColumnBlock(icon='arrow-right', label='Right column content')
 
     class Meta:
         template = 'blog/blocks/two_column_block.html'
