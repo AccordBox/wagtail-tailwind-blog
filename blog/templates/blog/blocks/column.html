@@ -1,6 +1,6 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% if blocks %}
+{% with blocks=self %}
  
     {% for block in blocks %}
         {% if block.block_type == 'heading' %}
@@ -14,4 +14,4 @@
         {% endif %}
     {% endfor %}
  
-{% endif %}
+{% endwith %}

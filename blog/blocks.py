@@ -18,7 +18,7 @@ class ColumnBlock(blocks.StreamBlock):
     image = ImageChooserBlock()
 
     class Meta:
-        template = 'blog/blocks/block.html'
+        template = 'blog/blocks/column.html'
 
 class TwoColumnBlock(blocks.StructBlock):
 
