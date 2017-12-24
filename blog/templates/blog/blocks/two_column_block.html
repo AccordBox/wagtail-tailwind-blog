@@ -1,0 +1,10 @@
+<div class="row">
+ 
+      <div class="col-md-6">
+           {% include "blog/blocks/column.html" with blocks=self.left_column only %}
+      </div>
+      <div class="col-md-6">
+           {% include "blog/blocks/column.html" with blocks=self.right_column only %}
+     </div>
+ 
+</div>

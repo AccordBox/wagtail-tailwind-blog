@@ -16,6 +16,13 @@ import wagtail
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
 
+from wagtail.wagtailcore.fields import StreamField
+from wagtail.wagtailcore import blocks
+from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.wagtailembeds.blocks import EmbedBlock
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, FieldRowPanel,MultiFieldPanel, \
+    InlinePanel, PageChooserPanel, StreamFieldPanel
+
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
@@ -29,6 +36,8 @@ from taggit.models import TaggedItemBase, Tag as TaggitTag
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
 
 from wagtailmd.utils import MarkdownField, MarkdownPanel
+
+from blog.blocks import TwoColumnBlock
 
 class BlogPage(RoutablePageMixin, Page):
     description = models.CharField(max_length=255, blank=True,)
@@ -129,6 +138,28 @@ class PostPage(Page):
         context = super(PostPage, self).get_context(request, *args, **kwargs)
         context['blog_page'] = self.blog_page
         context['post'] = self
+        return context
+
+class LandingPage(Page):
+    body = StreamField([
+        ('heading', blocks.CharBlock(classname="full title")),
+        ('paragraph', blocks.RichTextBlock()),
+        ('image', ImageChooserBlock(icon="image")),
+        ('two_columns', TwoColumnBlock()),
+        ('embedded_video', EmbedBlock(icon="media")),
+    ],null=True,blank=True)
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
+    ]
+
+    @property
+    def blog_page(self):
+        return self.get_parent().specific
+
+    def get_context(self, request, *args, **kwargs):
+        context = super(LandingPage, self).get_context(request, *args, **kwargs)
+        context['blog_page'] = self.blog_page
         return context
 
 @register_snippet
