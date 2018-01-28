@@ -1,10 +1,8 @@
 # Intro
 
-![](https://blog.michaelyin.info/upload/images/wagtail-tutorials-list.original.png)
+This project is developed exclusively for Wagtail Tutorial [Build Blog With Wagtail CMS](https://blog.michaelyin.info/wagtail-tutorials/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto), which shows people how to create a Wagtail blog using Bootstrap step by step. You can also import it into your Django project to quickly add professional blog function based on Wagtail.
 
-This project comes from the [Wagtail tutorials](https://blog.michaelyin.info/wagtail-tutorials/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto). I really hope it can help people quickly understand how Wagtail works, because it is so fantastic.
-
-## Table of Contents:
+## Articles about this project:
 
 * [Python CMS Framework Review: wagtail vs django-cms](https://blog.michaelyin.info/2017/06/19/python-cms-framework-review-wagtail-vs-django-cms/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) You might want to know the difference between Wagtail and Django-CMS, the two most popular CMS framework in Python world. That is why I wrote this blog post to help people like me to make a good choice.
 * [Wagtail Tutorial #1: Create Wagtail Project](https://blog.michaelyin.info/2017/06/23/wagtail-tutorials-building-blog-part-1/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) Show you how to create a wagtail project and help you understand its main components. 
