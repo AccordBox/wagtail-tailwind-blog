@@ -11,6 +11,8 @@
 from __future__ import absolute_import
 from django import template
 
+import wagtailmd
+
 import markdown
 
 register = template.Library()
@@ -20,8 +22,10 @@ def markdown_filter(value):
     return markdown.markdown(
         value,
         extensions=[
+            'toc',
             'extra',
             'codehilite',
+            'wagtailmd.mdx.tables',
             'wagtailmd.mdx.mdx_mathjax',
         ],
         extension_configs = {
