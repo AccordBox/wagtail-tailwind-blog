@@ -104,6 +104,19 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39890589-7"></script>
+
+    <script type="text/javascript">
+    if (document.location.hostname.search("wagtail.michaelyin.info") !== -1) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-39890589-7');
+    }
+    </script>
+
 </body>
 
 </html>
