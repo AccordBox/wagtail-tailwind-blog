@@ -55,7 +55,7 @@ class BlogPage(RoutablePageMixin, Page):
         return context
 
     def get_posts(self):
-        return PostPage.objects.descendant_of(self).live()
+        return PostPage.objects.descendant_of(self).live().order_by('-date')
 
     @route(r'^(\d{4})/$')
     @route(r'^(\d{4})/(\d{2})/$')
@@ -112,6 +112,9 @@ class BlogPage(RoutablePageMixin, Page):
 class PostPage(Page):
     body = MarkdownField()
     date = models.DateTimeField(verbose_name="Post date", default=datetime.datetime.today)
+    excerpt = MarkdownField(
+        verbose_name='excerpt', blank=True,
+    )
 
     header_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -126,8 +129,13 @@ class PostPage(Page):
     content_panels = Page.content_panels + [
         ImageChooserPanel('header_image'),
         MarkdownPanel("body"),
+        MarkdownPanel("excerpt"),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('tags'),
+    ]
+
+    settings_panels = Page.settings_panels + [
+        FieldPanel('date'),
     ]
 
     @property

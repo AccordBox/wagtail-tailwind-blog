@@ -1,0 +1,14 @@
+{% load wagtailcore_tags wagtailmd%}
+
+{{ self.md_body|markdown|safe }}
+
+<script>
+$(".markdown .field-content textarea").each(function(index, elem) {
+    var mde = new SimpleMDE({
+        element: elem,
+        autofocus: false
+    });
+    mde.render();
+});
+</script>
+

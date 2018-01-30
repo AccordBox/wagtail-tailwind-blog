@@ -76,3 +76,10 @@ def show_comments(context):
             'disqus_identifier': post.pk,
             'request': context['request']}
 
+@register.simple_tag(takes_context=True)
+def canonical_url(context, post=None):
+    import ipdb; ipdb.set_trace()
+    if post and resolve(context.request.path_info).url_name == 'wagtail_serve':
+        return context.request.build_absolute_uri(post_date_url(post, post.blog_page))
+    return context.request.build_absolute_uri()
+
