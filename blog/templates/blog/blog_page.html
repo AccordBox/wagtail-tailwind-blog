@@ -11,7 +11,7 @@
     {% endif %}
 
 
-    {% paginate 2 posts %}
+    {% paginate 5 posts %}
 
     {% for post in posts %}
 
@@ -27,12 +27,13 @@
         </h2>
 
         <p>
-            <span class="glyphicon glyphicon-time"></span> Posted on {{post.date}} by {{post.owner}}
+            {% if post.excerpt %}
+                {{ post.excerpt|markdown|safe }}
+            {% else %}
+                {{ post.body|markdown|safe|truncatewords_html:70 }}
+            {% endif %}
+            <hr>
         </p>
-
-        <hr>
-
-        {{ post.body|markdown|safe|truncatewords_html:40 }}
 
         <a class="btn btn-primary" href="{% post_date_url post blog_page %}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
