@@ -1,18 +1,30 @@
-# Intro
+## Introduction
 
 This project is developed exclusively for Wagtail Tutorial [Build Blog With Wagtail CMS](https://blog.michaelyin.info/wagtail-tutorials/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto), which shows people how to create a Wagtail blog using Bootstrap step by step. You can also import it into your Django project to quickly add professional blog function based on Wagtail.
 
-## Articles about this project:
+## Live Demo
 
-* [Python CMS Framework Review: wagtail vs django-cms](https://blog.michaelyin.info/2017/06/19/python-cms-framework-review-wagtail-vs-django-cms/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) You might want to know the difference between Wagtail and Django-CMS, the two most popular CMS framework in Python world. That is why I wrote this blog post to help people like me to make a good choice.
-* [Wagtail Tutorial #1: Create Wagtail Project](https://blog.michaelyin.info/2017/06/23/wagtail-tutorials-building-blog-part-1/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) Show you how to create a wagtail project and help you understand its main components. 
-* [Wagtail Tutorial #2: Create Data Model](https://blog.michaelyin.info/2017/06/25/wagtail-tutorials-building-blog-part-2/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) Teach you how to create the data model, clarify the workflow, and create template to render content.
-* [Wagtail Tutorial #3: Category And Tag Support](https://blog.michaelyin.info/2017/06/26/wagtail-tutorials-building-blog-part-3/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) Help you add category and tag support to post page as standard CMS does.
-* [Wagtail Tutorial #4: Routable Page](https://blog.michaelyin.info/2017/06/30/wagtail-tutorials-routable-page/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) Show you how to use RoutablePageMixin to make blog app routable, so it can handle sub-URLs like category and tag links.
-* [Wagtail Tutorial #5: Customize Blog Post URL](https://blog.michaelyin.info/2017/07/04/wagtail-tutorials-5-customize-blog-post-url/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) Teach you how to customize the permanent link of post page, and how to reverse the blog post link in the template..
-* [Wagtail Tutorial #6: Import Theme Into Wagtail Blog](https://blog.michaelyin.info/2017/07/06/wagtail-tutorials-6-import-theme-wagtail-blog/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) Explain how to quickly import an existing theme into wagtail blog to make our blog look more decent.
-* [Wagtail Tutorial #7: Add Search Function](https://blog.michaelyin.info/2017/07/11/wagtail-tutorials-7-add-search-function-wagtail-blog/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) Teach you how to add search function in wagtail blog so the user can filter the posts through the keywords.
-* [Wagtail Tutorial #8: Add Markdown Support](https://blog.michaelyin.info/2017/07/27/wagtail-tutorials-8-add-markdown-support/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) I will show you how to add Markdown support to our wagtail blog
-* [Wagtail Tutorial #9: Add LaTeX Support & Code Highlight In Wagtail](https://blog.michaelyin.info/2017/08/02/wagtail-tutorials-9-add-latex-support-code-highlight-wagtail/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) In this tutorial, I will talk about how to add LaTeX support and code highlight support in our wagtail blog application.
-* [Wagtail Tutorial #10: Add Comment Support In Wagtail Blog](https://blog.michaelyin.info/2017/10/23/wagtail-tutorials-10-add-comment-support-wagtail-blog/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) In this chapter, I will talk about how to add comment support to our Wagtail Blog.
-* [Wagtail Tutorial #11: How to use StreamField in Wagtail](https://blog.michaelyin.info/2017/12/25/how-use-streamfield-wagtail/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto) I will talk about the StreamField feature of Wagtail in detail and I must say StreamField is one of the most amazing features in Wagtail.
+I have deployed a live Wagtail Blog Demo on my Linode VPS, you can check it [Wagtail Blog Live Demo](http://wagtail.michaelyin.info/blog/).
+
+The admin page of this live demo is [blog admin](http://wagtail.michaelyin.info/admin/pages/4/) , you can use admin:admin to login and publish articles as you like. **To avoid somebody sends spam, the database would be reset every half hour, so do not be surprised if your article is gone.**
+
+You can check this page for more detail. [Wagtail Blog Demo is now available](https://blog.michaelyin.info/2018/02/01/wagtail-blog-demo-now-available/)
+
+## Run it in local env
+
+```bash
+git clone https://github.com/michael-yin/wagtail-bootstrap-blog.git
+cd wagtail-bootstrap-blog
+git checkout master
+
+# setup virtualenv
+pip install -r requirements.txt
+
+./manage.py runserver
+#http://127.0.0.1:8000/blog
+```
+
+## ScreenShot
+
+![](https://blog.michaelyin.info/upload/images/wagtail-demo-live-screenshot.original.jpg)
+
