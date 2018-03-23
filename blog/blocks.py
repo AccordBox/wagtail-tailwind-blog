@@ -5,11 +5,13 @@
 # Copyright © 2017-12-23 michael_yin
 #
 
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailcore import blocks
-from wagtail.wagtailimages.blocks import ImageChooserBlock
-from wagtail.wagtailembeds.blocks import EmbedBlock
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, FieldRowPanel,MultiFieldPanel, \
+from wagtail.core.fields import StreamField
+from wagtail.core import blocks
+
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.embeds.blocks import EmbedBlock
+
+from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel,MultiFieldPanel, \
     InlinePanel, PageChooserPanel, StreamFieldPanel
 
 class ColumnBlock(blocks.StreamBlock):

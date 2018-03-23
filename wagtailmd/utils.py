@@ -2,7 +2,7 @@ from django.db.models import TextField
 from django.utils.translation import ugettext_lazy as _
 
 from wagtail.utils.widgets import WidgetWithScript
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.admin.edit_handlers import FieldPanel
 
 
 class MarkdownField(TextField):
@@ -10,11 +10,14 @@ class MarkdownField(TextField):
         super(MarkdownField, self).__init__(**kwargs)
 
 class MarkdownPanel(FieldPanel):
-    def __init__(self, field_name, classname="", widget=None):
-        super(MarkdownPanel, self).__init__(field_name, classname, None)
+    def __init__(self, field_name, classname="", widget=None, **kwargs):
+        super(MarkdownPanel, self).__init__(
+            field_name,
+            classname=classname,
+            widget=widget,
+            **kwargs
+        )
 
-        if self.classname != "":
-            self.classname += " "
-        self.classname += "markdown"
-
+        if self.classname:
+            self.classname += "markdown"
 

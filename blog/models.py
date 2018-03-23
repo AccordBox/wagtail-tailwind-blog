@@ -13,27 +13,29 @@ from django.utils.dateformat import DateFormat
 from django.utils.formats import date_format
 
 import wagtail
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import RichTextField
+from wagtail.core.models import Page
+from wagtail.core.fields import RichTextField
 
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailcore import blocks
-from wagtail.wagtailimages.blocks import ImageChooserBlock
-from wagtail.wagtailembeds.blocks import EmbedBlock
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, FieldRowPanel,MultiFieldPanel, \
+from wagtail.core.fields import StreamField
+from wagtail.core import blocks
+
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.images.edit_handlers import ImageChooserPanel
+
+from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel,MultiFieldPanel, \
     InlinePanel, PageChooserPanel, StreamFieldPanel
 
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
 
-from wagtail.wagtailsnippets.models import register_snippet
+from wagtail.snippets.models import register_snippet
+from wagtail.embeds.blocks import EmbedBlock
 
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.tags import ClusterTaggableManager
 
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 
-from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
 from wagtailmd.utils import MarkdownField, MarkdownPanel
 
