@@ -1,3 +1,5 @@
+**This project support Wagtail 2.0 now! If you want a working version for Wagtail 1.13, check the tag.**
+
 ## Introduction
 
 This project is developed exclusively for Wagtail Tutorial [Build Blog With Wagtail CMS](https://blog.michaelyin.info/wagtail-tutorials/?utm_source=github&utm_medium=website&utm_campaign=wagtail_tuto), which shows people how to create a Wagtail blog using Bootstrap step by step. You can also import it into your Django project to quickly add professional blog function based on Wagtail.
