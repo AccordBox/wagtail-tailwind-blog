@@ -26,10 +26,12 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
-    'blog',
-    'el_pagination',
-    'wagtailmd',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -43,18 +45,19 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
 
-    # "wagtail.contrib.wagtailroutablepage",
     "wagtail.contrib.routable_page",
 
     'modelcluster',
     'taggit',
 
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'el_pagination',
+
+    'wagtail.contrib.modeladmin',  # Don't repeat if it's there already
+    'wagtailmenus',
+
+    'home',
+    'blog',
+    'wagtailmd',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +89,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'wagtailmenus.context_processors.wagtailmenus',
             ],
         },
     },

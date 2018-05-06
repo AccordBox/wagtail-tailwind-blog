@@ -1,5 +1,4 @@
-{% load static wagtailcore_tags wagtailimages_tags blogapp_tags %}
-
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags menu_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,20 +45,9 @@
                 </button>
                 <a class="navbar-brand" href="{{ blog_page.url }}">{{ blog_page.title }}</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/blog/about">StreamField Example</a>
-                    </li>
-                    <li>
-                        <a href="https://leanpub.com/buildblogwithwagtailcms" target="_blank">Wagtail Book</a>
-                    </li>
-                    <li>
-                        <a href="https://blog.michaelyin.info/about/#contact" target="_blank">Contact</a>
-                    </li>
-                </ul>
-            </div>
+
+            {% main_menu template="menus/bootstrap3/main_menu_dropdown.html" %}
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
