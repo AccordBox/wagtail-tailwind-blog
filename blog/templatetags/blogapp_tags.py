@@ -2,7 +2,7 @@
 import six
 
 from django.template import Library, loader
-from django.core.urlresolvers import resolve
+from django.urls import resolve
 
 from ..models import BlogCategory as Category, Tag
 
