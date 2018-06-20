@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+    'widget_tweaks',
 
     'el_pagination',
 
