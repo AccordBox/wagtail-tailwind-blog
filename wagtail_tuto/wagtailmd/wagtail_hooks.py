@@ -1,5 +1,6 @@
 
 from django.conf import settings
+
 from wagtail.core import hooks
 
 

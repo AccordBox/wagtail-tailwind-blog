@@ -9,13 +9,14 @@
 #
 
 from __future__ import absolute_import
+
 from django import template
 
+import markdown
 import wagtailmd
 
-import markdown
-
 register = template.Library()
+
 
 @register.filter(name='markdown')
 def markdown_filter(value):
@@ -28,11 +29,10 @@ def markdown_filter(value):
             'wagtailmd.mdx.tables',
             'wagtailmd.mdx.mdx_mathjax',
         ],
-        extension_configs = {
+        extension_configs={
             'codehilite': [
                 ('css_class', "highlight")
             ]
         },
         output_format='html5'
     )
-
