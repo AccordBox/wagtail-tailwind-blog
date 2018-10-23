@@ -6,41 +6,31 @@ from datetime import date
 
 from django import forms
 from django.db import models
-
 from django.http import Http404, HttpResponse
-
 from django.utils.dateformat import DateFormat
 from django.utils.formats import date_format
 
 import wagtail
-from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-
-from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import (FieldPanel, FieldRowPanel,
+                                         InlinePanel, MultiFieldPanel,
+                                         PageChooserPanel, StreamFieldPanel)
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.core import blocks
-
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.core.models import Page
+from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.edit_handlers import ImageChooserPanel
-
-from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel,MultiFieldPanel, \
-    InlinePanel, PageChooserPanel, StreamFieldPanel
-
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
-
 from wagtail.snippets.models import register_snippet
-from wagtail.embeds.blocks import EmbedBlock
-from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
-
-from modelcluster.fields import ParentalKey, ParentalManyToManyField
-from modelcluster.tags import ClusterTaggableManager
-
-from taggit.models import TaggedItemBase, Tag as TaggitTag
-
-from wagtail.contrib.routable_page.models import RoutablePageMixin, route
-
-from wagtailmd.utils import MarkdownField, MarkdownPanel
 
 from blog.blocks import TwoColumnBlock
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
+from modelcluster.tags import ClusterTaggableManager
+from taggit.models import Tag as TaggitTag
+from taggit.models import TaggedItemBase
+from wagtailmd.utils import MarkdownField, MarkdownPanel
+
 
 class BlogPage(RoutablePageMixin, Page):
     description = models.CharField(max_length=255, blank=True,)
@@ -112,6 +102,7 @@ class BlogPage(RoutablePageMixin, Page):
             self.search_type = 'search'
         return Page.serve(self, request, *args, **kwargs)
 
+
 class PostPage(Page):
     body = MarkdownField()
     date = models.DateTimeField(verbose_name="Post date", default=datetime.datetime.today)
@@ -151,6 +142,7 @@ class PostPage(Page):
         context['post'] = self
         return context
 
+
 class LandingPage(Page):
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
@@ -158,7 +150,7 @@ class LandingPage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('two_columns', TwoColumnBlock()),
         ('embedded_video', EmbedBlock(icon="media")),
-    ],null=True,blank=True)
+    ], null=True, blank=True)
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
@@ -172,6 +164,7 @@ class LandingPage(Page):
         context = super(LandingPage, self).get_context(request, *args, **kwargs)
         context['blog_page'] = self.blog_page
         return context
+
 
 @register_snippet
 class BlogCategory(models.Model):
@@ -190,8 +183,10 @@ class BlogCategory(models.Model):
         verbose_name = "Category"
         verbose_name_plural = "Categories"
 
+
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('PostPage', related_name='post_tags')
+
 
 @register_snippet
 class Tag(TaggitTag):

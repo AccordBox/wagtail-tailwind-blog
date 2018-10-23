@@ -5,14 +5,14 @@
 # Copyright © 2017-12-23 michael_yin
 #
 
-from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import (FieldPanel, FieldRowPanel,
+                                         InlinePanel, MultiFieldPanel,
+                                         PageChooserPanel, StreamFieldPanel)
 from wagtail.core import blocks
-
-from wagtail.images.blocks import ImageChooserBlock
+from wagtail.core.fields import StreamField
 from wagtail.embeds.blocks import EmbedBlock
+from wagtail.images.blocks import ImageChooserBlock
 
-from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel,MultiFieldPanel, \
-    InlinePanel, PageChooserPanel, StreamFieldPanel
 
 class ColumnBlock(blocks.StreamBlock):
     heading = blocks.CharBlock(classname="full title")
@@ -21,6 +21,7 @@ class ColumnBlock(blocks.StreamBlock):
 
     class Meta:
         template = 'blog/blocks/column.html'
+
 
 class TwoColumnBlock(blocks.StructBlock):
 
@@ -31,4 +32,3 @@ class TwoColumnBlock(blocks.StructBlock):
         template = 'blog/blocks/two_column_block.html'
         icon = 'placeholder'
         label = 'Two Columns'
-

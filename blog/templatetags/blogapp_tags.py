@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
-import six
-
 from django.template import Library, loader
 from django.urls import resolve
 
-from ..models import BlogCategory as Category, Tag
+import six
+
+from ..models import BlogCategory as Category
+from ..models import Tag
 
 register = Library()
+
 
 @register.simple_tag()
 def post_date_url(post, blog_page):
@@ -21,6 +23,7 @@ def post_date_url(post, blog_page):
         )
     )
     return url
+
 
 @register.inclusion_tag('blog/components/tags_list.html', takes_context=True)
 def tags_list(context, limit=None):
@@ -55,6 +58,7 @@ def post_tags_list(context):
 
     return {'blog_page': blog_page, 'request': context['request'], 'post_tags': post_tags}
 
+
 @register.inclusion_tag('blog/comments/disqus.html', takes_context=True)
 def show_comments(context):
     blog_page = context['blog_page']
@@ -76,9 +80,9 @@ def show_comments(context):
             'disqus_identifier': post.pk,
             'request': context['request']}
 
+
 @register.simple_tag(takes_context=True)
 def canonical_url(context, post=None):
     if post and resolve(context.request.path_info).url_name == 'wagtail_serve':
         return context.request.build_absolute_uri(post_date_url(post, post.blog_page))
     return context.request.build_absolute_uri()
-
