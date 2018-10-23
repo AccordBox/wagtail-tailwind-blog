@@ -19,5 +19,8 @@ class MarkdownPanel(FieldPanel):
         )
 
         if self.classname:
-            self.classname += "markdown"
+            if 'markdown' not in self.classname:
+                self.classname += "markdown"
+        else:
+            self.classname = "markdown"
 
