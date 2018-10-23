@@ -9,18 +9,21 @@
 {% block content %}
     {% if post.header_image %}
         {% image post.header_image original as header_image %}
-        <img src="{{ header_image.url }}" class="img-responsive" ></img>
+        <img src="{{ header_image.url }}" class="img-fluid rounded" ></img>
         <hr>
     {% endif %}
     <h1>{{ post.title }}</h1>
+
     <p>
-        <span class="glyphicon glyphicon-time"></span> {{post.date}} &nbsp;
-        <span class="glyphicon glyphicon-user"></span> {{post.owner}} &nbsp;
+        <i class="far fa-clock"></i> {{post.date}} &nbsp;
+        <i class="far fa-user"></i> {{post.owner}} &nbsp;
         {% post_categories %}
     </p>
     <hr>
+
     {{ post.body|markdown|safe }}
     <hr>
+
     {% post_tags_list %}
 
     {% show_comments %}

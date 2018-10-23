@@ -1,68 +1,52 @@
-{% load static wagtailcore_tags wagtailimages_tags blogapp_tags menu_tags %}
+{% load static wagtailcore_tags wagtailimages_tags wagtailuserbar blogapp_tags el_pagination_tags menu_tags wagtailmd %}
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>{% block title %}{{ blog_page.title }}{% if blog_page.description %} | {{ blog_page.description }}{% endif %}{% endblock title %}</title>
     <meta name="description" content="{% block meta_description %}{{ blog_page.search_description }}{% endblock meta_description %}"/>
 
     <link rel="canonical" href="{% block canonical %}{% canonical_url %}{% endblock canonical %}"/>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{% static 'blog/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-    <!-- Custom CSS -->
-    <link href="{% static 'blog/css/blog-home.css' %}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'blog/css/bootstrap4.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'blog/css/blog-home4.css' %}" rel="stylesheet">
 
     <link href="{% static 'blog/css/default.css' %}" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  </head>
 
-</head>
+  <body>
 
-<body>
+    {% wagtailuserbar %}
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ blog_page.url }}">{{ blog_page.title }}</a>
-            </div>
-
-            {% main_menu template="menus/bootstrap3/main_menu_dropdown.html" %}
-
-            <!-- /.navbar-collapse -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/blog">Wagtail Blog Demo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            {% main_menu template="menu/main_menu.html" %}
         </div>
-        <!-- /.container -->
+      </div>
     </nav>
 
     <!-- Page Content -->
     <div class="container">
 
-    <div class="alert alert-success">
-        <strong>This blog is based on Wagtail 2.0</strong>
-        <br>
-        <strong>The source code of this Wagtail Demo is availabe at Github <a href="https://github.com/michael-yin/wagtail-bootstrap-blog">wagtail-bootstrap-blog</a>, If you want to know how to build it, please check <a href="https://blog.michaelyin.info/wagtail-tutorials/">Wagtail Tutorial Series</a>, if you want to review this Wagtail Application, please check <a href="https://blog.michaelyin.info/2018/02/01/wagtail-blog-demo-now-available/">Wagtail Blog Demo is now available</a></strong>
-    </div>
+      <div class="row">
 
-        <div class="row">
             {% block maincontent %}
 
                 <div class="col-md-8">
@@ -74,31 +58,27 @@
                 {% include 'blog/components/sidebar.html' %}
 
             {% endblock %}
-        </div>
-        <!-- /.row -->
 
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; 2017-2018 Built with <a href="https://github.com/michael-yin/wagtail-bootstrap-blog" >wagtail-bootstrap-blog</a>
-                    </p> 
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </footer>
+      </div>
+      <!-- /.row -->
 
     </div>
     <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; 2017-2018 Built with <a href="https://github.com/michael-yin/wagtail-bootstrap-blog" >wagtail-bootstrap-blog</a>
+        </p>
+      </div>
+      <!-- /.container -->
+    </footer>
 
     <!-- jQuery -->
     <script src="{% static 'blog/js/jquery.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.bundle.min.js' %}"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39890589-7"></script>
@@ -113,7 +93,7 @@
     }
     </script>
 
-</body>
+  </body>
 
 </html>
 
