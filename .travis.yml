@@ -1,0 +1,29 @@
+language: python
+python: "3.6"
+cache:
+  pip: true
+
+
+# Use container-based infrastructure
+dist: trusty
+sudo: false
+
+
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE=wagtail_tuto.settings.dev
+
+install:
+  - pip install wheel
+  - pip install -r requirements.txt
+
+script:
+  # Code style, missing imports, etc
+  - flake8 wagtail_tuto
+  - isort --check-only --diff --recursive wagtail_tuto --skip-glob "*/migrations/*"
+
+  # Run system checks
+  - python manage.py check
+
+  # Check for missing migrations
+  - python manage.py makemigrations --check
