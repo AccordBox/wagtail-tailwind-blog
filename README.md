@@ -23,6 +23,7 @@ pip install -r requirements.txt
 
 ./manage.py runserver
 # http://127.0.0.1:8000/blog
+# username: admin  password: admin
 ```
 
 If you have any problem with your Wagtail project you can [contact me](https://blog.michaelyin.info/about/#contact)
