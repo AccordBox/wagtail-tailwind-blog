@@ -11,6 +11,14 @@ This project is developed exclusively for Wagtail Tutorial [Build Blog With Wagt
 * Wagtail 2
 * Bootstrap 4
 
+## Live Demo
+
+I have deployed a live Wagtail Blog Demo on my Linode VPS, you can check it [Wagtail Blog Live Demo](http://wagtail.michaelyin.info/blog/).
+
+The admin page of this live demo is [blog admin](http://wagtail.michaelyin.info/admin/pages/4/) , you can use `admin:admin` to login and publish articles as you like. **To avoid somebody sends spam, the database would be reset every half hour, so do not be surprised if your article is gone.**
+
+You can check this page for more detail. [Wagtail Blog Demo is now available](https://blog.michaelyin.info/2018/02/01/wagtail-blog-demo-now-available/)
+
 ## Run it in local env
 
 ```bash
