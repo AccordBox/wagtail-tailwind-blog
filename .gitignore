@@ -4,3 +4,4 @@
 deploy/
 fabfile.py
 .idea/
+.python-version
