@@ -6,7 +6,9 @@ Markdown==2.6.2
 Pygments
 wagtailmenus==2.8
 django-widget-tweaks==1.4.2
-isort==4.3.4
-flake8==3.5.0
-pycodestyle==2.3.0
 
+# code style
+flake8==3.6.0
+isort==4.3.4
+pycodestyle==2.4.0
+autopep8==1.4.3
