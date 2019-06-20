@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailimages_tags wagtailuserbar blogapp_tags el_pagination_tags menu_tags wagtailmd %}
+{% load static wagtailcore_tags wagtailimages_tags wagtailuserbar blogapp_tags el_pagination_tags menu_tags wagtailmd compress %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +15,9 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'blog/css/bootstrap4.min.css' %}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="{% static 'blog/css/blog-home4.css' %}" rel="stylesheet">
-
-    <link href="{% static 'blog/css/default.css' %}" rel="stylesheet">
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'blog/scss/blog.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
 
   </head>
 
