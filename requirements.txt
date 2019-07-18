@@ -8,6 +8,7 @@ wagtailmenus==2.8
 django-widget-tweaks==1.4.2
 django_compressor==2.2
 django-libsass==0.7
+django-environ==0.4.5
 
 # code style
 flake8==3.6.0
