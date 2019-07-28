@@ -11,7 +11,7 @@ sudo: false
 
 env:
   global:
-    - DJANGO_SETTINGS_MODULE=wagtail_tuto.settings.dev
+    - DJANGO_SETTINGS_MODULE=config.settings.dev
 
 install:
   - pip install wheel
