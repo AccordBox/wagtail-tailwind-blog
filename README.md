@@ -13,11 +13,11 @@ This project is developed exclusively for Wagtail Tutorial [Build Blog With Wagt
 
 ## Live Demo
 
-I have deployed a live Wagtail Blog Demo on my Linode VPS, you can check it [Wagtail Blog Live Demo](http://wagtail.michaelyin.info/blog/).
+I have deployed a live Wagtail Blog Demo on Heroku, you can check it [Wagtail Blog Live Demo](http://wagtail-bootstrap-blog.accordbox.com/blog/).
 
-The admin page of this live demo is [blog admin](http://wagtail.michaelyin.info/admin/pages/4/) , you can use `admin:admin` to login and publish articles as you like. **To avoid somebody sends spam, the database would be reset every half hour, so do not be surprised if your article is gone.**
+The admin page of this live demo is [blog admin](http://wagtail-bootstrap-blog.accordbox.com/admin/pages/4/) , you can use `admin:admin` to login and publish articles as you like.
 
-You can check this page for more detail. [Wagtail Blog Demo is now available](https://blog.michaelyin.info/2018/02/01/wagtail-blog-demo-now-available/)
+**The database and media files would be reset after a while, so do not be surprised if your article is gone.**
 
 ## Run it in local env
 
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 # username: admin  password: admin
 ```
 
-If you have any problem with your Wagtail project you can [contact me](https://blog.michaelyin.info/about/#contact)
+If you have any problem with your Wagtail project you can [contact me](https://www.accordbox.com/contact/)
 
 ## ScreenShot
 
