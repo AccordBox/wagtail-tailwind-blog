@@ -5,3 +5,4 @@ deploy/
 fabfile.py
 .idea/
 .python-version
+static_root/
