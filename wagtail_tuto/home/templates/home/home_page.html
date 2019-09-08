@@ -1,6 +1,104 @@
-{% block content %}
-    <h1>{{ self.title }}</h1>
+{% load static menu_tags compress wagtailcore_tags wagtailimages_tags %}
 
-    <a href="/blog/">Blog Home</a>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Business Frontpage - Start Bootstrap Template</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+  {% compress css %}
+    <link type="text/x-scss" href="{% static 'blog/scss/blog.scss' %}" rel="stylesheet" media="screen">
+  {% endcompress %}
+
+  <style>
+    body {
+      padding-top: 56px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">Wagtail Blog Demo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      {% main_menu template="menu/main_menu.html" %}
+    </div>
+  </div>
+</nav>
+
+  <!-- Header -->
+  <header class="bg-light py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-dark mt-5 mb-2">{{ social_media_setting.hero_title }}</h1>
+          <div class="lead mb-5 text-dark-50">{{ social_media_setting.hero_lead|richtext }}</div>
+          <a href="{{ social_media_setting.hero_cta_url }}" class="btn btn-primary">{{ social_media_setting.hero_cta_text }}</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+      {% for row in social_media_setting.testimonial %}
+      <div class="row mb-5">
+        <div class="col-md-6">
+          {% image row.value.image original as row_image %}
+          <img class="img-fluid rounded mb-3 mb-md-0" src="{{ row_image.url }}" alt="">
+        </div>
+        <div class="col-md-6">
+          {{ row.value.paragraph|richtext }}
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; 2017-2019 Built with <a href="https://www.accordbox.com/blog/wagtail-tutorials/" >wagtail-bootstrap-blog</a>
+      </p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- jQuery -->
+  <script src="{% static 'blog/js/jquery.js' %}"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="{% static 'blog/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39890589-7"></script>
+
+  <script type="text/javascript">
+      if (document.location.hostname.search("wagtail.michaelyin.info") !== -1) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-39890589-7');
+      }
+  </script>
+
+</body>
+
+</html>

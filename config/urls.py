@@ -9,9 +9,12 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
+import wagtail_tuto.home.views
+
 urlpatterns = [
     path('django-admin/', admin.site.urls),
 
+    url(r'^$', wagtail_tuto.home.views.home),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
 
