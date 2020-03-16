@@ -1,4 +1,4 @@
-import cgi
+import html
 
 import markdown
 
@@ -12,7 +12,7 @@ class MathJaxPattern(markdown.inlinepatterns.Pattern):
     def handleMatch(self, m):
         # Pass the math code through, unmodified except for basic entity substitutions.
         # Stored in htmlStash so it doesn't get further processed by Markdown.
-        text = cgi.escape(m.group(2) + m.group(3) + m.group(2))
+        text = html.escape(m.group(2) + m.group(3) + m.group(2))
         return self.markdown.htmlStash.store(text)
 
 
