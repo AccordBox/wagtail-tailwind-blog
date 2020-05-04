@@ -4,7 +4,7 @@ django-taggit==0.22.2
 django-el-pagination==3.1.0
 Markdown==2.6.2
 Pygments
-wagtailmenus==2.8
+wagtailmenus==3.0.1
 django-widget-tweaks==1.4.2
 django_compressor==2.2
 django-libsass==0.7
