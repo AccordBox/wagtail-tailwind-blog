@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "wagtail-bootstrap-blog"
+version = "0.1.0"
+description = ""
+authors = ["Mizuki Sato <mizki.sato.0025@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+wagtail = "^2.9"
+gunicorn = "^20.0.4"
+wagtailmenus = "^3.0.2"
+Markdown = "^3.2.2"
+django-el-pagination = "^3.3.0"
+django-environ = "^0.4.5"
+django-widget-tweaks = "^1.4.8"
+django_compressor = "^2.4"
+django-taggit = "1.2.0"
+django-libsass = "^0.8"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.3"
+isort = "^4.3.21"
+pycodestyle = "^2.6.0"
+autopep8 = "^1.5.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
