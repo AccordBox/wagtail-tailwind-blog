@@ -27,7 +27,7 @@ jobs:
         make pylint
     - name: system check
       run: |
-        python manage.py check
-        python manage.py makemigrations --check
+        poetry run python3 manage.py check
+        poetry run python3 manage.py makemigrations --check
       env:
         DJANGO_SETTINGS_MODULE: config.settings.dev
