@@ -6,6 +6,7 @@ fabfile.py
 .idea/
 .python-version
 static_root/
+media/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
