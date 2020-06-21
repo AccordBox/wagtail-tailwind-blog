@@ -29,7 +29,6 @@ from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.tags import ClusterTaggableManager
 from taggit.models import Tag as TaggitTag
 from taggit.models import TaggedItemBase
-from wagtailmd.utils import MarkdownField, MarkdownPanel
 
 
 class BlogPage(RoutablePageMixin, Page):
@@ -73,20 +72,6 @@ class BlogPage(RoutablePageMixin, Page):
             raise Http404
         return Page.serve(post_page, request, *args, **kwargs)
 
-    @route(r'^tag/(?P<tag>[-\w]+)/$')
-    def post_by_tag(self, request, tag, *args, **kwargs):
-        self.search_type = 'tag'
-        self.search_term = tag
-        self.posts = self.get_posts().filter(tags__slug=tag)
-        return Page.serve(self, request, *args, **kwargs)
-
-    @route(r'^category/(?P<category>[-\w]+)/$')
-    def post_by_category(self, request, category, *args, **kwargs):
-        self.search_type = 'category'
-        self.search_term = category
-        self.posts = self.get_posts().filter(categories__slug=category)
-        return Page.serve(self, request, *args, **kwargs)
-
     @route(r'^$')
     def post_list(self, request, *args, **kwargs):
         self.posts = self.get_posts()
@@ -104,11 +89,8 @@ class BlogPage(RoutablePageMixin, Page):
 
 
 class PostPage(Page):
-    body = MarkdownField()
+    body = RichTextField()
     date = models.DateTimeField(verbose_name="Post date", default=datetime.datetime.today)
-    excerpt = MarkdownField(
-        verbose_name='excerpt', blank=True,
-    )
 
     header_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -122,10 +104,7 @@ class PostPage(Page):
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('header_image'),
-        MarkdownPanel("body"),
-        MarkdownPanel("excerpt"),
-        FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
-        FieldPanel('tags'),
+        FieldPanel("body"),
     ]
 
     settings_panels = Page.settings_panels + [
@@ -192,35 +171,3 @@ class BlogPageTag(TaggedItemBase):
 class Tag(TaggitTag):
     class Meta:
         proxy = True
-
-
-class FormField(AbstractFormField):
-    page = ParentalKey('FormPage', related_name='custom_form_fields')
-
-
-class FormPage(AbstractEmailForm):
-    thank_you_text = RichTextField(blank=True)
-
-    content_panels = AbstractEmailForm.content_panels + [
-        InlinePanel('custom_form_fields', label="Form fields"),
-        FieldPanel('thank_you_text', classname="full"),
-        MultiFieldPanel([
-            FieldRowPanel([
-                FieldPanel('from_address', classname="col6"),
-                FieldPanel('to_address', classname="col6"),
-            ]),
-            FieldPanel('subject'),
-        ], "Email Notification Config"),
-    ]
-
-    def get_context(self, request, *args, **kwargs):
-        context = super(FormPage, self).get_context(request, *args, **kwargs)
-        context['blog_page'] = self.blog_page
-        return context
-
-    def get_form_fields(self):
-        return self.custom_form_fields.all()
-
-    @property
-    def blog_page(self):
-        return self.get_parent().specific

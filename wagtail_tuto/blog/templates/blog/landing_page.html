@@ -1,5 +1,5 @@
 {% extends "blog/base.html" %}
-{% load static wagtailcore_tags wagtailimages_tags blogapp_tags wagtailmd%}
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags %}
 
 {% block title %}{{ self.title }} | {{ blog_page.title }}{% endblock title %}
 {% block meta_title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock meta_title %}
