@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailimages_tags wagtailuserbar blogapp_tags el_pagination_tags menu_tags wagtailmd compress %}
+{% load static wagtailcore_tags wagtailimages_tags wagtailuserbar blogapp_tags el_pagination_tags menu_tags compress %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +10,6 @@
 
     <title>{% block title %}{{ blog_page.title }}{% if blog_page.description %} | {{ blog_page.description }}{% endif %}{% endblock title %}</title>
     <meta name="description" content="{% block meta_description %}{{ blog_page.search_description }}{% endblock meta_description %}"/>
-
-    <link rel="canonical" href="{% block canonical %}{% canonical_url %}{% endblock canonical %}"/>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -50,8 +48,6 @@
 
                     {% endblock %}
                 </div>
-
-                {% include 'blog/components/sidebar.html' %}
 
             {% endblock %}
 

@@ -1,7 +1,7 @@
 
 {% extends "blog/base.html" %}
 
-{% load static wagtailcore_tags wagtailimages_tags blogapp_tags el_pagination_tags wagtailmd %}
+{% load static wagtailcore_tags wagtailimages_tags blogapp_tags el_pagination_tags %}
 
 {% block content %}
 
@@ -27,13 +27,6 @@
           <h2 class="card-title">
             <a href="{% post_date_url post blog_page %}">{{ post.title }}</a>
           </h2>
-          <p class="card-text">
-            {% if post.excerpt %}
-                {{ post.excerpt|markdown|safe }}
-            {% else %}
-                {{ post.body|markdown|safe|truncatewords_html:70 }}
-            {% endif %}
-          </p>
           <a href="{% post_date_url post blog_page %}" class="btn btn-primary">Read More &rarr;</a>
 
         </div>
