@@ -1,5 +1,0 @@
-build:
-  config:
-    SECRET_KEY: yo=alr#$yabm*0lm1*mc=s5rb%zl0le-4=g&rji4mt&r1+d_2k
-  docker:
-    web: Dockerfile
