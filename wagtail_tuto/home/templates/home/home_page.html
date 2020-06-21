@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Business Frontpage - Start Bootstrap Template</title>
+  <title>{{ blog_page.title }}</title>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -41,32 +41,9 @@
   </div>
 </nav>
 
-  <!-- Header -->
-  <header class="bg-light py-5 mb-5">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        <div class="col-lg-12">
-          <h1 class="display-4 text-dark mt-5 mb-2">{{ social_media_setting.hero_title }}</h1>
-          <div class="lead mb-5 text-dark-50">{{ social_media_setting.hero_lead|richtext }}</div>
-          <a href="{{ social_media_setting.hero_cta_url }}" class="btn btn-primary">{{ social_media_setting.hero_cta_text }}</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
   <!-- Page Content -->
   <div class="container">
-      {% for row in social_media_setting.testimonial %}
-      <div class="row mb-5">
-        <div class="col-md-6">
-          {% image row.value.image original as row_image %}
-          <img class="img-fluid rounded mb-3 mb-md-0" src="{{ row_image.url }}" alt="">
-        </div>
-        <div class="col-md-6">
-          {{ row.value.paragraph|richtext }}
-        </div>
-      </div>
-      {% endfor %}
+    {{ page.body|richtext }}
   </div>
 
   <!-- /.container -->
