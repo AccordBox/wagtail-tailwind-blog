@@ -5,11 +5,10 @@ description = ""
 authors = ["Mizuki Sato <mizki.sato.0025@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.6"
 wagtail = "^2.9"
 gunicorn = "^20.0.4"
 wagtailmenus = "^3.0.2"
-Markdown = "^3.2.2"
 django-el-pagination = "^3.3.0"
 django-environ = "^0.4.5"
 django-widget-tweaks = "^1.4.8"
