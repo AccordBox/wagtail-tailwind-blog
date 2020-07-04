@@ -136,15 +136,17 @@ STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'static'),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
-STATIC_URL = '/static/'
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
     ('text/x-sass', 'django_libsass.SassCompiler'),
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_ROOT = '/usr/share/nginx/html/static'
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = '/usr/share/nginx/html/media'
 MEDIA_URL = '/media/'
 
 
