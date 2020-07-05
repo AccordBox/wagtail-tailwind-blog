@@ -1,0 +1,32 @@
+- hosts: vps
+  tasks:
+    - name: for test
+      shell: "echo 'hello world'"
+    - name: fetch repository
+      git:
+        repo: "https://{{ github_token }}:x-oauth-basic@github.com/mizzsugar/wagtail-bootstrap-blog.git"
+        dest: "/home/ubuntu/wagtail-bootstrap-blog"
+        version: "{{ git_branch }}"
+    - name: nginx settings
+      become: yes
+      template:
+        src: router.conf
+        dest: /etc/nginx/sites-enabled/sake
+        mode: 775
+      notify:
+        - systemctl restart nginx
+    - name: remove .local
+      command: rm -rf /home/ubuntu/.local
+    - pip:
+        name: poetry
+    - name: poetry install
+      command: "chdir=/home/ubuntu/wagtail-bootstrap-blog poetry install"
+    - name: migrate
+      command: "chdir=/home/ubuntu/wagtail-bootstrap-blog poetry run python3 manage.py migrate"
+    - name: collect static
+      command: "chdir=/home/ubuntu/wagtail-bootstrap-blog poetry run python3 manage.py collectstatic --no-input"
+    - name: runserver
+      command: "chdir=/home/ubuntu/wagtail-bootstrap-blog poetry run gunicorn config.wsgi"
+      environment: 
+        SECRET_KEY: "{{ django_secret_key }}"
+        ALLOWED_HOSTS: "{{ allowed_hosts }}"
