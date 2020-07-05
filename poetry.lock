@@ -449,7 +449,7 @@ description = "A Django content management system."
 name = "wagtail"
 optional = false
 python-versions = "*"
-version = "2.9"
+version = "2.9.2"
 
 [package.dependencies]
 Django = ">=2.1,<3.1"
@@ -469,7 +469,7 @@ xlsxwriter = ">=1.2.8,<2.0"
 
 [package.extras]
 docs = ["pyenchant (1.6.8)", "sphinxcontrib-spelling (>=2.3.0)", "Sphinx (>=1.5.2)", "sphinx-autobuild (>=0.6.0)", "sphinx-rtd-theme (>=0.1.9)"]
-testing = ["pytz (>=2014.7)", "python-dateutil (>=2.2)", "elasticsearch (>=1.0.0,<3.0)", "Jinja2 (>=2.8,<3.0)", "boto3 (>=1.4,<1.5)", "freezegun (>=0.3.8)", "openpyxl (>=2.6.4)", "coverage (>=3.7.0)", "flake8 (>=3.6.0)", "isort (4.2.5)", "flake8-blind-except (0.1.1)", "flake8-print (2.0.2)", "jinjalint (>=0.5)", "docutils (0.15)"]
+testing = ["python-dateutil (>=2.2)", "pytz (>=2014.7)", "elasticsearch (>=1.0.0,<3.0)", "Jinja2 (>=2.8,<3.0)", "boto3 (>=1.4,<1.5)", "freezegun (>=0.3.8)", "openpyxl (>=2.6.4)", "coverage (>=3.7.0)", "flake8 (>=3.6.0)", "isort (4.2.5)", "flake8-blind-except (0.1.1)", "flake8-print (2.0.2)", "jinjalint (>=0.5)", "docutils (0.15)", "django-taggit (>=1.3.0,<2.0)"]
 
 [[package]]
 category = "main"
@@ -729,8 +729,8 @@ urllib3 = [
     {file = "urllib3-1.25.9.tar.gz", hash = "sha256:3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"},
 ]
 wagtail = [
-    {file = "wagtail-2.9-py3-none-any.whl", hash = "sha256:ec5305aba6bf75ca9313287ddf159b43ac4e7cdff771cfe0a9413b481baa433f"},
-    {file = "wagtail-2.9.tar.gz", hash = "sha256:23c5514d530ad2dbe81360e53abd38cfe4b42671e03018a9dd95ee941b4327f4"},
+    {file = "wagtail-2.9.2-py3-none-any.whl", hash = "sha256:40b63551b1dbd93831e2dbeb0d455cd30b0723c88758a2fe77d77d0a41507908"},
+    {file = "wagtail-2.9.2.tar.gz", hash = "sha256:07c08f2582c499f78261e4b514a9bad36353cfc47cb8792a79517d13da8f8d1c"},
 ]
 wagtailmenus = [
     {file = "wagtailmenus-3.0.2-py3-none-any.whl", hash = "sha256:518b8e74fddcae91115313085673b72fdfc17aa4f711f0ea00dbdffa20abce33"},
