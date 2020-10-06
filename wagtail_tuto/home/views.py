@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from wagtail.core.models import Site
+
 from home.models import CopyWritingSettings
 
 
