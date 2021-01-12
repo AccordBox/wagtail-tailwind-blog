@@ -1,0 +1,7 @@
+{% if post_categories %}
+    <i class="fas fa-tag"></i>
+    {% for postpage_category in post_categories %}
+        {{ postpage_category.blog_category.name }}
+    {% endfor %}
+    &nbsp;
+{% endif %}

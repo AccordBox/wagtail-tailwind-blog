@@ -1,0 +1,43 @@
+version: "3.7"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./compose/local/web/Dockerfile
+    image: wagtail_bootstrap_blog_web
+    command: /start
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    stdin_open: true
+    tty: true
+    env_file:
+      - ./.env/.dev-sample
+    depends_on:
+      - db
+      - frontend
+
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=wagtail_bootstrap_blog
+      - POSTGRES_USER=wagtail_bootstrap_blog
+      - POSTGRES_PASSWORD=wagtail_bootstrap_blog
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./compose/local/frontend/Dockerfile
+    image: wagtail_bootstrap_blog_frontend
+    command: npm start
+    volumes:
+      - .:/app
+      # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
+      - /app/frontend/node_modules
+
+volumes:
+  postgres_data:

@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./compose/production/nginx/Dockerfile
+    volumes:
+      - staticfiles:/app/static
+      - mediafiles:/app/media
+    ports:
+      - 80:80
+    depends_on:
+      - web
+
+  web:
+    build:
+      context: .
+      dockerfile: ./compose/production/web/Dockerfile
+    image: wagtail_bootstrap_blog_web
+    command: /start
+    volumes:
+      - staticfiles:/app/static
+      - mediafiles:/app/media
+    env_file:
+      - ./.env/.prod-sample
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=wagtail_bootstrap_blog
+      - POSTGRES_USER=wagtail_bootstrap_blog
+      - POSTGRES_PASSWORD=wagtail_bootstrap_blog
+
+volumes:
+  postgres_data:
+  staticfiles:
+  mediafiles:
