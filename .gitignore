@@ -1,8 +1,21 @@
-*.py[cod]
+.idea
+__pycache__
+/db.sqlite3
+*.pyc
 .DS_Store
+*.swp
+venv/
 
-deploy/
-fabfile.py
-.idea/
 .python-version
-static_root/
+/config/settings/local.py
+/django.log
+/latest.dump
+/.vagrant/
+node_modules/
+
+wagtail_project/env
+db.sqlite3
+
+/media/
+/frontend/build/
+project.tar
