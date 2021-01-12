@@ -13,7 +13,6 @@ venv/
 /.vagrant/
 node_modules/
 
-wagtail_project/env
 db.sqlite3
 
 /media/
