@@ -1,42 +1,54 @@
 ## Introduction
 
-[![Build Status](https://travis-ci.org/AccordBox/wagtail-bootstrap-blog.svg?branch=master)](https://travis-ci.org/AccordBox/wagtail-bootstrap-blog)
+This project is from my book [Build Blog With Wagtail CMS (2.0.0)](https://leanpub.com/buildblogwithwagtailcms/), it will teach you how to build a modern blog with Wagtail CMS
 
-This project is developed exclusively for Wagtail Tutorial [Build Blog With Wagtail CMS](https://www.accordbox.com/blog/wagtail-tutorials/), which shows people how to create a Wagtail blog using Bootstrap step by step. You can also import it into your Django project to quickly add professional blog function based on Wagtail.
+## Highlight features
 
-## Project Detail
+1. Use `Docker` and `Docker-Compose` to manage infrastructure.
+1. Flexible page content with `StreamField`
+1. Support writing in `Markdown` and `Latex`
+1. Clean comment form which supports `mention` and `emoji`
+1. Modern frontend stack: `ES6`, `SCSS`, `Webpack`.
 
-* Python 3
-* Django 2
-* Wagtail 2
-* Bootstrap 4
+## Tech
 
-## Live Demo
+* Django 3.1
+* Wagtail 2.11
+* Webpack 5
+* jQuery 3.5.1
+* Bootstrap 4.5
+* Tribute.js
+* Axios
 
-I have deployed a live Wagtail Blog Demo on Heroku, you can check it [Wagtail Blog Live Demo](http://wagtail-bootstrap-blog.accordbox.com/blog/).
+## How to run on local
 
-The admin page of this live demo is [blog admin](http://wagtail-bootstrap-blog.accordbox.com/admin/pages/4/) , you can use `admin:admin` to login and publish articles as you like.
-
-**The database and media files would be reset after a while, so do not be surprised if your article is gone.**
-
-## Run it in local env
+You need Docker and Docker Compose and you can install it here [Get Docker](https://docs.docker.com/get-docker/)
 
 ```bash
-git clone https://github.com/michael-yin/wagtail-bootstrap-blog.git
-cd wagtail-bootstrap-blog
-git checkout master
-
-# setup virtualenv
-pip install -r requirements.txt
-
-./manage.py runserver
-# http://127.0.0.1:8000/blog
-# username: admin  password: admin
+$ git clone https://github.com/AccordBox/wagtail-bootstrap-blog
+$ cd wagtail-bootstrap-blog
+# build and lanch app
+$ docker-compose up --build
 ```
 
-If you have any problem with your Wagtail project you can [contact me](https://www.accordbox.com/contact/)
+Now open a new terminal to import data and change password.
+
+```bash
+$ docker-compose exec web python manage.py load_initial_data
+$ docker-compose exec web python manage.py changepassword admin
+```
+
+Now you can check on
+
+* [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+## Demo
+
+The demo is also online if you want to check.
+
+* [Wagtail Blog Demo](wagtail-blog.accordbox.com)
 
 ## ScreenShot
 
-![](https://blog.michaelyin.info/upload/images/wagtail-demo-live-screenshot-bootstrap4.original.jpg)
+![](./misc/comment.gif)
 

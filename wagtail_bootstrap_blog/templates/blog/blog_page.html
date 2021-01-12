@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags blogapp_tags %}
+
+{% block content %}
+
+    {% if page.search_term %}
+      <div class="alert alert-success">
+        Search Results for <span>{{ page.search_type }}: {{ page.search_term }}</span>
+      </div>
+    {% endif %}
+
+    {% for post in posts %}
+        <div class="card mb-4">
+          {% if post.header_image %}
+            {% image post.header_image original as header_image %}
+            <a href="{% post_page_date_slug_url post blog_page %}">
+              <img src="{{ header_image.url }}" class="card-img-top">
+            </a>
+          {% endif %}
+
+          <div class="card-body">
+            <h2 class="card-title">
+              <a href="{% post_page_date_slug_url post blog_page %}">{{ post.title }}</a>
+            </h2>
+            <p class="card-text">
+              {{ post.description }}
+            </p>
+            <a href="{% post_page_date_slug_url post blog_page %}" class="btn btn-primary">Read More &rarr;</a>
+
+          </div>
+
+          <div class="card-footer text-muted">
+            Posted on {{ post.post_date }}
+          </div>
+
+        </div>
+    {% endfor %}
+
+    {# Pagination #}
+    {# https://docs.djangoproject.com/en/3.1/topics/pagination/#paginating-a-listview #}
+    <ul class="pagination">
+      {% if posts.has_previous %}
+        <li class="page-item">
+          <a href="{% url_replace request page=posts.previous_page_number %}" class="page-link">
+            Previous
+          </a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a href="#" class="page-link">
+            Previous
+          </a>
+        </li>
+      {% endif %}
+
+      {% if posts.has_next %}
+        <li class="page-item">
+          <a href="{% url_replace request page=posts.next_page_number %}" class="page-link">
+            Next
+          </a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a href="#" class="page-link">
+            Next
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load blogapp_tags wagtailroutablepage_tags %}
+
+<div class="col-md-4">
+  {% if blog_page %}
+
+  <div class="card my-4">
+    <h5 class="card-header">Search</h5>
+    <div class="card-body">
+      <form role="search" method="get" class="form-search" action="{% routablepageurl blog_page "post_search" %}">
+
+        <div class="input-group">
+          <input type="text" class="form-control search-query" name="q" placeholder="Search&hellip;" title="Search for:" />
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="submit">Go!</button>
+          </span>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  {% categories_list %}
+
+  {% tags_list %}
+
+  {% endif %}
+</div>

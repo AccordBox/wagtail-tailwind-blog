@@ -1,0 +1,52 @@
+.tribute-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  max-height: 300px;
+  max-width: 500px;
+  overflow: auto;
+  display: block;
+  z-index: 999999;
+
+  ul {
+    margin: 0;
+    margin-top: 2px;
+    padding: 0;
+    list-style: none;
+    background: #efefef;
+  }
+
+  li {
+    padding: 5px 5px;
+    cursor: pointer;
+
+    &.highlight {
+      background: #ddd;
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    &.no-match {
+      cursor: default;
+    }
+  }
+
+  .menu-highlighted {
+    font-weight: bold;
+  }
+}
+
+/* stylelint-disable */
+// for emoji image
+.tribute-container {
+  li {
+    img {
+      max-height: 16px;
+    }
+  }
+}
+a {}
+/* stylelint-enable */

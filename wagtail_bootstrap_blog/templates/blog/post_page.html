@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags blogapp_tags static wagtailmetadata_tags comments crispy_forms_tags %}
+
+{% block meta_tag %}
+  {% meta_tags %}
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/code_theme.css" %}" />
+{% endblock %}
+
+{% block content %}
+    {% image page.header_image original as header_image %}
+    <img src="{{ header_image.url }}" class="img-fluid">
+
+    <h1>{{ page.title }}</h1>
+
+    <p>
+      {% post_categories_list %}
+    </p>
+
+    {# body #}
+    {% include "blog/components/streamfield.html" %}
+
+    <hr>
+
+    {% post_tags_list %}
+    <hr>
+
+    <div class="mb-4">
+      {% render_comment_list for page %}
+    </div>
+    <div class="mb-4">
+      {% render_comment_form for page %}
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+  {# If you want to use Latex with Markdown #}
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [['$','$']],
+          displayMath: [['$$','$$']] ,
+          processEscapes: true
+        },
+        "HTML-CSS": { availableFonts: ["TeX"] }
+      });
+  </script>
+  <script type="text/javascript"
+          src="//cdn.mathjax.org/mathjax/latest/MathJax.js">
+  </script>
+  <script>
+    window.AccordBox.setupComment();
+  </script>
+{% endblock %}

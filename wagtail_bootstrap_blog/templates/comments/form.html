@@ -1,0 +1,14 @@
+{% load comments crispy_forms_tags %}
+<form action="{% comment_form_target %}?next={{ form.target_object.url }}" method="post"
+      data-object-pk="{{ form.get_object_pk }}"
+      data-content-type="{{ form.get_content_type }}"
+      data-mention-url="{% url 'comments-mention-query' %}"
+      class="ab-comments-form"
+>
+  {% csrf_token %}
+
+  {{ form|crispy }}
+
+  <input type="hidden" name="next" value="{{ form.target_object.url }}" />
+  <input type="submit" name="post" class="btn btn-primary" value="Post Comment"/>
+</form>
