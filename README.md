@@ -1,6 +1,6 @@
 ## Introduction
 
-This project is from my book [Build Blog With Wagtail CMS](https://leanpub.com/buildblogwithwagtailcms/), it will teach you how to build a modern blog with Wagtail CMS
+This project is from my book [Build Blog With Wagtail CMS (2.0.0)](https://leanpub.com/buildblogwithwagtailcms/), it will teach you how to build a modern blog with Wagtail CMS
 
 ## Highlight features
 
