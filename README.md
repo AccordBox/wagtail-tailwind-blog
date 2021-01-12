@@ -46,7 +46,7 @@ Now you can check on
 
 The demo is also online if you want to check.
 
-* [Wagtail Blog Demo](wagtail-blog.accordbox.com)
+* [Wagtail Blog Demo](http://wagtail-blog.accordbox.com)
 
 ## ScreenShot
 
