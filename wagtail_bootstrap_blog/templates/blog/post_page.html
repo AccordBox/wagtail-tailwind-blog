@@ -11,7 +11,8 @@
 {% endblock %}
 
 {% block content %}
-    {% image page.header_image max-1000x500 %}
+    {% image page.header_image original as header_image %}
+    <img src="{{ header_image.url }}" class="img-fluid">
 
     <h1>{{ page.title }}</h1>
 
