@@ -1,0 +1,10 @@
+DEBUG=0
+SECRET_KEY=dbaa1_i7%*3r9-=z-+_mz4r-!qeed@(-a_r(g@k8jo8y3r27%m
+DJANGO_ALLOWED_HOSTS=*
+
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=wagtail_bootstrap_blog
+SQL_USER=wagtail_bootstrap_blog
+SQL_PASSWORD=wagtail_bootstrap_blog
+SQL_HOST=db
+SQL_PORT=5432
