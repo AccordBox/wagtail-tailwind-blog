@@ -26,8 +26,10 @@ By the end of this course, you will be able to:
 
 ## Tech
 
+* Python 3.8
 * Django 3.1
 * Wagtail 2.11
+* Node 12
 * Webpack 5
 * jQuery 3.5.1
 * Bootstrap 4.5
