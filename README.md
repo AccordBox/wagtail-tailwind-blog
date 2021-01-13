@@ -1,14 +1,28 @@
 ## Introduction
 
-This project is from my book [Build Blog With Wagtail CMS (2.0.0)](https://leanpub.com/buildblogwithwagtailcms/), it will teach you how to build a modern blog with Wagtail CMS
+This project is from my book [Build Blog With Wagtail CMS (second version)](https://leanpub.com/buildblogwithwagtailcms/)
 
-## Highlight features
+## Objective
 
-1. Use `Docker` and `Docker-Compose` to manage infrastructure.
-1. Flexible page content with `StreamField`
-1. Support writing in `Markdown` and `Latex`
-1. Clean comment form which supports `mention` and `emoji`
-1. Modern frontend stack: `ES6`, `SCSS`, `Webpack`.
+This book will teach you how to build a modern blog with `Wagtail CMS`
+
+By the end of this course, you will be able to:
+
+1. Understand `Docker` and use `Docker Compose` to do development
+1. Create blog models to work with Wagtail.
+1. Import `Bootstrap` themes to the blog.
+1. Use `PDB` and `Django shell` to debug, test code and check data in terminal.
+1. Learn to use `RoutablePage` and add `Date` to the post url.
+1. Build `Pagination` component and correctly handle querystring.
+1. Make the blog supports wirting in `Markdown` and `Latex`.
+1. Create contact page using Wagtail `FormBuilder`
+1. Build menu, meta tags, sitemap, robots.txt for better SEO.
+1. Build comment system based on `django-contrib-comments` which support `Generic Relations`
+1. Understand how to use `Webpack` to bundle frontend assets and make it work with Django project.
+1. Learn SCSS and use it to customize style in quick way.
+1. Use `Tribute.js`, `Axios` to add `Mention` and `Emoji` support to the comment form.
+1. Learn `Async/Await`, `Promise` and the benefits.
+1. Deploy the production app to DigitalOcean
 
 ## Tech
 
