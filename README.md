@@ -2,6 +2,8 @@
 
 This project is from my book [Build Blog With Wagtail CMS (second version)](https://leanpub.com/buildblogwithwagtailcms/)
 
+Note: If you are interested in `React`, `Storybook` and `Wagtail`, you can check [wagtail-react-blog](https://github.com/AccordBox/wagtail-react-blog)
+
 ## Objective
 
 This book will teach you how to build a modern blog with `Wagtail CMS`
