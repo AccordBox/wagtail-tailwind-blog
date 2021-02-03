@@ -1,5 +1,5 @@
 Django>=3.1,<3.2
-wagtail>=2.11,<2.12
+wagtail>=2.11,<2.13
 psycopg2-binary
 django-extensions==3.1.0
 
