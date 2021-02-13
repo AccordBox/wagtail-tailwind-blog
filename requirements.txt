@@ -8,7 +8,7 @@ Pygments
 wagtail-django-recaptcha==1.0
 django-crispy-forms==1.10.0
 wagtailmenus==3.0.2
-wagtail-metadata==3.3.1
+wagtail-metadata==3.4.0
 
 django-contrib-comments==1.9.2
 emoji==0.6.0
