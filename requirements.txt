@@ -10,7 +10,7 @@ django-crispy-forms==1.10.0
 wagtailmenus==3.0.2
 wagtail-metadata==3.3.1
 
-django-contrib-comments==1.9.2
+django-contrib-comments==2.1.0
 emoji==0.6.0
 
 gunicorn
