@@ -3,7 +3,7 @@ wagtail>=2.11,<2.12
 psycopg2-binary
 django-extensions==3.1.0
 
-wagtail-markdown==0.6
+wagtail-markdown==0.7.0
 Pygments
 wagtail-django-recaptcha==1.0
 django-crispy-forms==1.10.0
