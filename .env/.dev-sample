@@ -1,0 +1,6 @@
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=wagtail_bootstrap_blog
+SQL_USER=wagtail_bootstrap_blog
+SQL_PASSWORD=wagtail_bootstrap_blog
+SQL_HOST=db
+SQL_PORT=5432
