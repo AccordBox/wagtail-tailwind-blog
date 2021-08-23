@@ -1,8 +1,12 @@
 ## Introduction
 
-This project is from my book [Build Blog With Wagtail CMS (second version)](https://leanpub.com/buildblogwithwagtailcms/)
+This project is from my book [Build Blog With Wagtail CMS](https://leanpub.com/buildblogwithwagtailcms/)
 
-Note: If you are interested in `React`, `Storybook` and `Wagtail`, you can check [wagtail-react-blog](https://github.com/AccordBox/wagtail-react-blog)
+Other Wagtail Books Writeen by me
+
+* [The Definitive Guide to Next.js and Wagtail](https://leanpub.com/the-definitive-guide-to-nextjs-and-wagtail/)
+* [Build SPA with React and Wagtail](https://leanpub.com/react-wagtail)
+* [Build Blog with React (SSR) and Wagtail](https://leanpub.com/react-wagtail-ssr)
 
 ## Objective
 
