@@ -1,5 +1,0 @@
-User-Agent: *
-Disallow: /admin/
-
-# Sitemap files
-Sitemap: {{ wagtail_site.root_url }}/sitemap.xml
