@@ -1,9 +1,11 @@
-from . import get_model as get_comment_model
-from django.contrib.contenttypes.models import ContentType
-from django.http import JsonResponse
 from django.shortcuts import redirect
 from wagtail.admin import messages
 from wagtail.contrib.modeladmin.views import DeleteView
+
+from django.contrib.contenttypes.models import ContentType
+from django.http import JsonResponse
+
+from . import get_model as get_comment_model
 
 
 class CommentDeleteView(DeleteView):

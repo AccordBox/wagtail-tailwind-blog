@@ -12,17 +12,6 @@ module.exports = merge(common, {
   devtool: "inline-source-map",
   output: {
     chunkFilename: "js/[name].chunk.js",
-    publicPath: "http://localhost:9091/",
-  },
-  devServer: {
-    inline: true,
-    hot: true,
-    host: "0.0.0.0",
-    port: 9091,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-    writeToDisk: true,
   },
   plugins: [
     new Webpack.DefinePlugin({

@@ -1,33 +1,22 @@
-# Webpack Frontend Starterkit
+# README
 
-[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
+This project was created with [python-webpack-boilerplate](https://github.com/AccordBox/python-webpack-boilerplate)
 
-A lightweight foundation for your next webpack based frontend project.
+## Available Scripts
 
-### Installation
+In the project directory, you can run:
 
-```
-npm install
-```
+### `npm run start`
 
-### Start Dev Server
+`npm run start` will launch a server process, which makes `live reloading` possible.
 
-```
-npm start
-```
+If you change JS or SCSS files, the web page would auto refresh after the change. Now the server is working on port 9091 by default, but you can change it in `webpack/webpack.config.dev.js`
 
-### Build Prod Version
+### `npm run watch`
 
-```
-npm run build
-```
+run webpack in `watch` mode.
 
-### Features:
+### `npm run build`
 
-- ES6 Support via [babel](https://babeljs.io/) (v7)
-- JavaScript Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
-- SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
-- Autoprefixing of browserspecific CSS rules via [postcss](https://postcss.org/) and [autoprefixer](https://github.com/postcss/autoprefixer)
-- Style Linting via [stylelint](https://stylelint.io/)
+[production mode](https://webpack.js.org/guides/production/), Webpack would focus on minified bundles, lighter weight source maps, and optimized assets to improve load time.
 
-When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.

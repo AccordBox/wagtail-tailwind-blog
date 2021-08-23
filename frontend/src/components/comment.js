@@ -1,26 +1,30 @@
-import $ from "jquery/dist/jquery.slim";
 import axios from "axios";
 import Tribute from "tributejs";
+import camelcaseKeys from "camelcase-keys";
+import snakecaseKeys from "snakecase-keys";
 
-async function getMentionTribute($commentsForm) {
-  const url = $commentsForm.data("mention-url");
+async function getMentionTribute(commentsForm) {
+  const url = commentsForm.dataset.mentionUrl;
   let tribute;
 
   try {
+    const params = {
+      objectPk: commentsForm.dataset.objectPk,
+      contentType: commentsForm.dataset.contentType,
+    };
+
     const response = await axios.get(url, {
-        params: {
-          object_pk: $commentsForm.data("object-pk"),
-          content_type: $commentsForm.data("content-type"),
-        },
+        params: snakecaseKeys(params, {deep: true}),
       }
     );
+    const data = camelcaseKeys(response.data, {deep: true});
 
     let values = [];
-    for (const index in response.data.result) {
-      const userValue = response.data.result[index];
+    for (const index in data.result) {
+      const userValue = data.result[index];
       values.push({
-        key: userValue.user_name,
-        value: userValue.user_name,
+        key: userValue.userName,
+        value: userValue.userName,
       });
     }
 
@@ -35,16 +39,17 @@ async function getMentionTribute($commentsForm) {
   return tribute;
 }
 
-async function getEmojiTribute($commentsForm) {
+async function getEmojiTribute(commentsForm) {
   const url = 'https://api.github.com/emojis';
   let tribute;
 
   try {
     const response = await axios.get(url);
+    const data = camelcaseKeys(response.data, {deep: true});
 
     let values = [];
-    for (const key in response.data) {
-      const value = response.data[key];
+    for (const key in data) {
+      const value = data[key];
       values.push({
         key: key,
         value: value,
@@ -69,19 +74,17 @@ async function getEmojiTribute($commentsForm) {
 }
 
 function setupComment() {
-  $(function () {
-    const $commentsForm = $(".ab-comments-form");
-    if (!$commentsForm.length) return;
-
+  document.addEventListener("DOMContentLoaded",function(){
+    const commentsForm  = document.getElementsByClassName('comments-form')[0];
     const editorTextArea = document.getElementById("id_comment");
 
-    getEmojiTribute($commentsForm).then(function(tribute) {
+    getMentionTribute(commentsForm).then(function(tribute) {
       if (tribute) {
         tribute.attach(editorTextArea);
       }
     });
 
-    getMentionTribute($commentsForm).then(function(tribute) {
+    getEmojiTribute(commentsForm).then(function(tribute) {
       if (tribute) {
         tribute.attach(editorTextArea);
       }

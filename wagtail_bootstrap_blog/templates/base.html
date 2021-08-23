@@ -1,20 +1,19 @@
-{% load static wagtailuserbar %}
+{% load static wagtailuserbar webpack_loader %}
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js h-100" lang="en">
     <head>
         <meta charset="utf-8" />
-
         {% block meta_tag %}
           <title>
-              {% block title %}
-                  {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
-              {% endblock %}
-              {% block title_suffix %}
-                  {% with self.get_site.site_name as site_name %}
-                      {% if site_name %}- {{ site_name }}{% endif %}
-                  {% endwith %}
-              {% endblock %}
+            {% block title %}
+              {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+              {% with self.get_site.site_name as site_name %}
+                {% if site_name %}- {{ site_name }}{% endif %}
+              {% endwith %}
+            {% endblock %}
           </title>
           <meta name="description" content="{{ page.search_description }}" />
         {% endblock %}
@@ -26,19 +25,18 @@
         {% endif %}
 
         {# Global stylesheets #}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-        <link href="{% static 'css/app.css' %}" rel="stylesheet" media="screen">
+        {% stylesheet_pack 'app' %}
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="d-flex flex-column h-100 {% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
         {% include 'blog/components/navbar.html' %}
 
-        <div class="container">
+        <div class="container flex-shrink-0">
           <div class="row">
               <div class="col-md-8">
                 {% block content %}{% endblock %}
@@ -49,8 +47,8 @@
 
         {% include 'blog/components/footer.html' %}
 
-        <script src="{% static 'js/vendors.js' %}"></script>
-        <script src="{% static 'js/app.js' %}"></script>
+        {# Global javascript #}
+        {% javascript_pack 'app' %}
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}

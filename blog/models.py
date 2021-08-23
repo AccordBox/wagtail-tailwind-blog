@@ -1,11 +1,8 @@
 import datetime
-
 from django.db import models
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.utils.formats import date_format
-from django.utils.dateformat import DateFormat
-from django.http import Http404
 from django.utils.functional import cached_property
+from django.http import Http404
 from modelcluster.fields import ParentalKey
 from modelcluster.tags import ClusterTaggableManager
 from taggit.models import Tag as TaggitTag
@@ -22,7 +19,7 @@ from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
-from wagtail.core.fields import RichTextField, StreamField
+from wagtail.core.fields import StreamField, RichTextField
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.search import index
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
@@ -38,6 +35,7 @@ class BlogPage(RoutablePageMixin, Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
+        # context['blog_page'] = self
 
         # https://docs.djangoproject.com/en/3.1/topics/pagination/#using-paginator-in-a-view-function
         paginator = Paginator(self.posts, 2)
@@ -55,22 +53,6 @@ class BlogPage(RoutablePageMixin, Page):
     def get_posts(self):
         return PostPage.objects.descendant_of(self).live().order_by("-post_date")
 
-    @route(r"^(\d{4})/$")
-    @route(r"^(\d{4})/(\d{2})/$")
-    @route(r"^(\d{4})/(\d{2})/(\d{2})/$")
-    def post_by_date(self, request, year, month=None, day=None, *args, **kwargs):
-        self.search_type = 'date'
-        self.search_term = year
-        self.posts = self.get_posts().filter(post_date__year=year)
-        if month:
-            df = DateFormat(datetime.date(int(year), int(month), 1))
-            self.search_term = df.format('F Y')
-            self.posts = self.posts.filter(post_date__month=month)
-        if day:
-            self.search_term = date_format(datetime.date(int(year), int(month), int(day)))
-            self.posts = self.posts.filter(post_date__day=day)
-        return self.render(request)
-
     @route(r"^(\d{4})/(\d{2})/(\d{2})/(.+)/$")
     def post_by_date_slug(self, request, year, month, day, slug, *args, **kwargs):
         post_page = self.get_posts().filter(slug=slug).first()
@@ -79,17 +61,33 @@ class BlogPage(RoutablePageMixin, Page):
         # here we render another page, so we call the serve method of the page instance
         return post_page.serve(request)
 
+    @route(r"^(\d{4})/$")
+    @route(r"^(\d{4})/(\d{2})/$")
+    @route(r"^(\d{4})/(\d{2})/(\d{2})/$")
+    def post_by_date(self, request, year, month=None, day=None, *args, **kwargs):
+        self.filter_type = 'date'
+        self.filter_term = year
+        self.posts = self.get_posts().filter(post_date__year=year)
+        if month:
+            df = DateFormat(datetime.date(int(year), int(month), 1))
+            self.filter_term = df.format('F Y')
+            self.posts = self.posts.filter(post_date__month=month)
+        if day:
+            self.filter_term = date_format(datetime.date(int(year), int(month), int(day)))
+            self.posts = self.posts.filter(post_date__day=day)
+        return self.render(request)
+
     @route(r'^tag/(?P<tag>[-\w]+)/$')
     def post_by_tag(self, request, tag, *args, **kwargs):
-        self.search_type = 'tag'
-        self.search_term = tag
+        self.filter_type = 'tag'
+        self.filter_term = tag
         self.posts = self.get_posts().filter(tags__slug=tag)
         return self.render(request)
 
     @route(r'^category/(?P<category>[-\w]+)/$')
     def post_by_category(self, request, category, *args, **kwargs):
-        self.search_type = 'category'
-        self.search_term = category
+        self.filter_type = 'category'
+        self.filter_term = category
         self.posts = self.get_posts().filter(categories__blog_category__slug=category)
         return self.render(request)
 
@@ -98,8 +96,8 @@ class BlogPage(RoutablePageMixin, Page):
         search_query = request.GET.get("q", None)
         self.posts = self.get_posts()
         if search_query:
-            self.search_term = search_query
-            self.search_type = 'search'
+            self.filter_term = search_query
+            self.filter_type = 'search'
             self.posts = self.posts.search(search_query)
         return self.render(request)
 
@@ -140,13 +138,13 @@ class PostPage(MetadataPageMixin, Page):
         related_name="+",
     )
 
-    post_date = models.DateTimeField(
-        verbose_name="Post date", default=datetime.datetime.today
-    )
-
     body = StreamField(BodyBlock(), blank=True)
 
     tags = ClusterTaggableManager(through="blog.PostPageTag", blank=True)
+
+    post_date = models.DateTimeField(
+        verbose_name="Post date", default=datetime.datetime.today
+    )
 
     content_panels = Page.content_panels + [
         ImageChooserPanel("header_image"),
@@ -164,6 +162,11 @@ class PostPage(MetadataPageMixin, Page):
         index.SearchField('body'),
     ]
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        # context['blog_page'] = self.blog_page
+        return context
+
     @cached_property
     def blog_page(self):
         return self.get_parent().specific
@@ -178,6 +181,40 @@ class PostPage(MetadataPageMixin, Page):
 
     def get_sitemap_urls(self, request=None):
         return []
+
+
+class FormField(AbstractFormField):
+    page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
+
+
+class FormPage(WagtailCaptchaEmailForm):
+    thank_you_text = RichTextField(blank=True)
+
+    content_panels = AbstractEmailForm.content_panels + [
+        InlinePanel("form_fields", label="Form fields"),
+        FieldPanel("thank_you_text", classname="full"),
+        MultiFieldPanel(
+            [
+                FieldRowPanel(
+                    [
+                        FieldPanel("from_address", classname="col6"),
+                        FieldPanel("to_address", classname="col6"),
+                    ]
+                ),
+                FieldPanel("subject"),
+            ],
+            "Email Notification Config",
+        ),
+    ]
+
+    @cached_property
+    def blog_page(self):
+        return self.get_parent().specific
+
+    def get_context(self, request, *args, **kwargs):
+        context = super(FormPage, self).get_context(request, *args, **kwargs)
+        # context["blog_page"] = self.blog_page
+        return context
 
 
 class PostPageBlogCategory(models.Model):
@@ -223,30 +260,3 @@ class Tag(TaggitTag):
     class Meta:
         proxy = True
 
-
-class FormField(AbstractFormField):
-    page = ParentalKey("FormPage", related_name="custom_form_fields")
-
-
-class FormPage(WagtailCaptchaEmailForm):
-    thank_you_text = RichTextField(blank=True)
-
-    content_panels = AbstractEmailForm.content_panels + [
-        InlinePanel("custom_form_fields", label="Form fields"),
-        FieldPanel("thank_you_text", classname="full"),
-        MultiFieldPanel(
-            [
-                FieldRowPanel(
-                    [
-                        FieldPanel("from_address", classname="col6"),
-                        FieldPanel("to_address", classname="col6"),
-                    ]
-                ),
-                FieldPanel("subject"),
-            ],
-            "Email Notification Config",
-        ),
-    ]
-
-    def get_form_fields(self):
-        return self.custom_form_fields.all()

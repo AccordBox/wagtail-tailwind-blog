@@ -33,7 +33,7 @@ services:
       context: .
       dockerfile: ./compose/local/frontend/Dockerfile
     image: wagtail_bootstrap_blog_frontend
-    command: npm start
+    command: npm run watch
     volumes:
       - .:/app
       # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html

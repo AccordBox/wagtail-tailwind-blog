@@ -1,25 +1,10 @@
 from urllib.parse import urlparse, urlunparse
-from django.http import QueryDict
-from blog.models import BlogCategory as Category, Tag
 from django.template import Library, loader
+from django.http import QueryDict
+from blog.models import BlogCategory, Tag
 from blog.md_converter.utils import render_markdown
 
 register = Library()
-
-
-@register.simple_tag()
-def post_page_date_slug_url(post_page, blog_page):
-    post_date = post_page.post_date
-    url = blog_page.full_url + blog_page.reverse_subpage(
-        "post_by_date_slug",
-        args=(
-            post_date.year,
-            "{0:02}".format(post_date.month),
-            "{0:02}".format(post_date.day),
-            post_page.slug,
-        ),
-    )
-    return url
 
 
 @register.inclusion_tag('blog/components/tags_list.html',
@@ -36,7 +21,7 @@ def tags_list(context):
 @register.inclusion_tag('blog/components/categories_list.html',
                         takes_context=True)
 def categories_list(context):
-    categories = Category.objects.all()
+    categories = BlogCategory.objects.all()
     return {
         'request': context['request'],
         'blog_page': context['blog_page'],
@@ -78,6 +63,21 @@ def url_replace(request, **kwargs):
         query_dict[key] = value
     query = query_dict.urlencode()
     return urlunparse((scheme, netloc, path, params, query, fragment))
+
+
+@register.simple_tag()
+def post_page_date_slug_url(post_page, blog_page):
+    post_date = post_page.post_date
+    url = blog_page.full_url + blog_page.reverse_subpage(
+        "post_by_date_slug",
+        args=(
+            post_date.year,
+            "{0:02}".format(post_date.month),
+            "{0:02}".format(post_date.day),
+            post_page.slug,
+        ),
+    )
+    return url
 
 
 @register.filter(name='markdown')

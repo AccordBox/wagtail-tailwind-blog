@@ -9,15 +9,15 @@ from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.contrib.sitemaps.views import sitemap
 import blog.views
 
+
 urlpatterns = [
     path('django-admin/', admin.site.urls),
 
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
+    path('comments/', include('custom_comments.urls')),
     path('sitemap.xml', sitemap),
     path('robots.txt', blog.views.RobotsView.as_view()),
-
-    path('comments/', include('ab_comment.urls')),
 ]
 
 
@@ -32,6 +32,7 @@ if settings.DEBUG:
         path('404/', default_views.page_not_found, kwargs={'exception': Exception("Page not Found")}),
         path('500/', default_views.server_error),
     ] + urlpatterns
+
 
 urlpatterns = urlpatterns + [
     # For anything not caught by a more specific rule above, hand over to

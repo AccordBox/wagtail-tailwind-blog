@@ -1,32 +1,49 @@
-const Path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const glob = require("glob");
+const Path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const WebpackAssetsManifest = require("webpack-assets-manifest");
+
+const getEntryObject = () => {
+  const entries = {};
+  glob.sync("src/application/*.js").forEach((path) => {
+    const name = Path.basename(path, ".js");
+    entries[name] = Path.resolve(__dirname, `../${path}`);
+  });
+  return entries;
+};
 
 module.exports = {
-  entry: {
-    app: Path.resolve(__dirname, '../src/scripts/index.js'),
-  },
+  entry: getEntryObject(),
   output: {
-    path: Path.join(__dirname, '../build'),
-    filename: 'js/[name].js',
+    path: Path.join(__dirname, "../build"),
+    filename: "js/[name].js",
+    publicPath: "/static/",
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
-      name: 'vendors',
+      chunks: "all",
     },
+
+    runtimeChunk: "single",
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({ patterns: [{ from: Path.resolve(__dirname, '../public'), to: 'public' }] }),
-    new HtmlWebpackPlugin({
-      template: Path.resolve(__dirname, '../src/index.html'),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: Path.resolve(__dirname, "../vendors"), to: "vendors" },
+      ],
+    }),
+    new WebpackAssetsManifest({
+      entrypoints: true,
+      output: "manifest.json",
+      writeToDisk: true,
+      publicPath: true,
     }),
   ],
   resolve: {
     alias: {
-      '~': Path.resolve(__dirname, '../src'),
+      "~": Path.resolve(__dirname, "../src"),
     },
   },
   module: {
@@ -34,14 +51,14 @@ module.exports = {
       {
         test: /\.mjs$/,
         include: /node_modules/,
-        type: 'javascript/auto',
+        type: "javascript/auto",
       },
       {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         use: {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            name: '[path][name].[ext]',
+            name: "[path][name].[ext]",
           },
         },
       },
