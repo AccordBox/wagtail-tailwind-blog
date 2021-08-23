@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load comments crispy_forms_tags %}
+
+{% block meta_tag %}
+  <title>Create Comment</title>
+{% endblock %}
+
+{% block content %}
+  {% include 'comments/form.html' %}
+{% endblock %}

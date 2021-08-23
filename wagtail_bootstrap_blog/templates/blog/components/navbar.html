@@ -1,0 +1,16 @@
+{% load menu_tags %}
+
+<header>
+  <nav class="mb-2 navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Wagtail Blog Demo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        {% main_menu template="menu/main_menu.html" %}
+      </div>
+    </div>
+  </nav>
+</header>
