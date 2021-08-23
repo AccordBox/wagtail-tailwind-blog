@@ -16,11 +16,11 @@ By the end of this course, you will be able to:
 1. Use `PDB` and `Django shell` to debug, test code and check data in terminal.
 1. Learn to use `RoutablePage` and add `Date` to the post url.
 1. Build `Pagination` component and correctly handle querystring.
-1. Make the blog supports wirting in `Markdown` and `Latex`.
+1. Make the blog supports writing in `Markdown` and `Latex`.
 1. Create contact page using Wagtail `FormBuilder`
 1. Build menu, meta tags, sitemap, robots.txt for better SEO.
 1. Build comment system based on `django-contrib-comments` which support `Generic Relations`
-1. Understand how to use `Webpack` to bundle frontend assets and make it work with Django project.
+1. Create Frontend project from `python-webpack-boilerplate` and load compiled CSS and JS in Django template.
 1. Learn SCSS and use it to customize style in quick way.
 1. Use `Tribute.js`, `Axios` to add `Mention` and `Emoji` support to the comment form.
 1. Learn `Async/Await`, `Promise` and the benefits.
@@ -29,12 +29,11 @@ By the end of this course, you will be able to:
 ## Tech
 
 * Python 3.8
-* Django 3.1
-* Wagtail 2.11
-* Node 12
+* Django 3.2
+* Wagtail 2.14
+* Node.js 12
 * Webpack 5
-* jQuery 3.5.1
-* Bootstrap 4.5
+* Bootstrap 5.1
 * Tribute.js
 * Axios
 
@@ -69,4 +68,3 @@ The demo is also online if you want to check.
 ## ScreenShot
 
 ![](./misc/comment.gif)
-

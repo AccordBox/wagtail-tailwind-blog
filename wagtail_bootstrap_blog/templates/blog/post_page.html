@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags blogapp_tags static wagtailmetadata_tags comments crispy_forms_tags %}
+{% load wagtailcore_tags wagtailimages_tags blogapp_tags static wagtailmetadata_tags comments %}
 
 {% block meta_tag %}
   {% meta_tags %}
@@ -22,8 +22,6 @@
 
     {# body #}
     {% include "blog/components/streamfield.html" %}
-
-    <hr>
 
     {% post_tags_list %}
     <hr>
@@ -52,7 +50,7 @@
       });
   </script>
   <script type="text/javascript"
-          src="//cdn.mathjax.org/mathjax/latest/MathJax.js">
+          src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js">
   </script>
   <script>
     window.AccordBox.setupComment();

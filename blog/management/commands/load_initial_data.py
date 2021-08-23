@@ -27,7 +27,7 @@ class Command(BaseCommand):
 
     def handle(self, **options):
         fixtures_dir = os.path.join(settings.BASE_DIR, "blog", "fixtures")
-        fixture_file = os.path.join(fixtures_dir, "demo.json")
+        fixture_file = os.path.join(fixtures_dir, "blogdemo.json")
 
         print("Copying media files to configured storage...")
         local_storage = FileSystemStorage(os.path.join(fixtures_dir, "media"))

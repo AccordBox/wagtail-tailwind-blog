@@ -28,9 +28,6 @@ INSTALLED_APPS = [
     'search',
     'blog',
 
-    'ab_comment.apps.AbCommentConfig',
-    'django_comments',
-
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -45,16 +42,20 @@ INSTALLED_APPS = [
     'wagtail.contrib.routable_page',
     'wagtail.contrib.postgres_search',
     'wagtail.contrib.modeladmin',
-    
+
     'modelcluster',
     'taggit',
     'django_extensions',
     'wagtailmarkdown',
     'crispy_forms',
+    'crispy_bootstrap5',
     'captcha',
     'wagtailcaptcha',
-    'wagtailmenus',
+    "wagtailmenus",
     'wagtailmetadata',
+    'webpack_loader',
+    'django_comments',
+    'custom_comments.apps.CustomCommentsConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -190,7 +191,13 @@ WAGTAILSEARCH_BACKENDS = {
     },
 }
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-COMMENTS_APP = 'ab_comment'
+WEBPACK_LOADER = {
+    'MANIFEST_FILE': os.path.join(BASE_DIR, "frontend/build/manifest.json"),
+}
+
 SITE_ID = 1
+
+COMMENTS_APP = 'custom_comments'

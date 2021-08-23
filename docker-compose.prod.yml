@@ -17,7 +17,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/web/Dockerfile
-    image: wagtail_bootstrap_blog_web
+    image: wagtail_bootstrap_blog_prod_web
     command: /start
     volumes:
       - staticfiles:/app/static
