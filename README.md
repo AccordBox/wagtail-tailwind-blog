@@ -30,7 +30,7 @@ By the end of this course, you will be able to:
 
 * Python 3.8
 * Django 3.2
-* Wagtail 2.15
+* Wagtail 2.14
 * Node.js 12
 * Webpack 5
 * Bootstrap 5.1
