@@ -24,6 +24,9 @@ services:
       - mediafiles:/app/media
     env_file:
       - ./.env/.prod-sample
+    environment:
+        - RECAPTCHA_PRIVATE_KEY
+        - RECAPTCHA_PUBLIC_KEY
     depends_on:
       - db
 
