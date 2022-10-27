@@ -1,0 +1,12 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "comment";
+
+.btn-blue {
+  @apply inline-flex items-center;
+  @apply px-4 py-2;
+  @apply font-semibold rounded-lg shadow-md;
+  @apply text-white bg-blue-500;
+  @apply hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+}

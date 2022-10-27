@@ -1,0 +1,33 @@
+{% load static wagtailcore_tags blogapp_tags %}
+
+{% with blocks=page.body %}
+  {% for block in blocks %}
+    {% if block.block_type == 'h1' %}
+      <div>
+        <h1>{{ block.value }}</h1>
+      </div>
+    {% elif block.block_type == 'h2' %}
+      <div>
+        <h2>{{ block.value }}</h2>
+      </div>
+    {% elif block.block_type == 'paragraph' %}
+      <div>
+        {{ block.value|richtext }}
+      </div>
+    {% elif block.block_type == 'image_text' %}
+      <div>
+        {% include 'blog/blocks/image_text.html' with block=block only %}
+      </div>
+    {% elif block.block_type == 'image_carousel' %}
+      <div>
+        {% include 'blog/blocks/image_carousel.html' with block=block only %}
+      </div>
+    {% elif block.block_type == 'markdown' %}
+      {{ block.value|markdown|safe }}
+    {% else %}
+      <section class="block-{{ block.block_type }}">
+        {{ block }}
+      </section>
+    {% endif %}
+  {% endfor %}
+{% endwith %}

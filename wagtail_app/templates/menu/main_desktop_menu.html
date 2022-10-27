@@ -1,0 +1,5 @@
+{% for item in menu_items %}
+  <a href="{{ item.href }}" class="text-gray-500 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >
+    {{ item.text }}
+  </a>
+{% endfor %}

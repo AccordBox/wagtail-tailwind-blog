@@ -1,0 +1,20 @@
+{% load custom_comments_tags %}
+
+{% for comment in comment_list %}
+
+  <div id="c{{ comment.id }}" class="flex my-4">
+    <div class="flex-none">
+      <img width="64" height="64" src="https://via.placeholder.com/64" alt="Generic placeholder">
+    </div>
+
+    <div class="ml-3">
+      <div class="comment-date">
+        <strong class="text-primary">{{ comment.name }}</strong>
+        <small>{{ comment.submit_date }}</small>
+      </div>
+      {{ comment.comment|comment_post_processor|linebreaks }}
+    </div>
+
+  </div>
+
+{% endfor %}
