@@ -10,3 +10,11 @@
   @apply text-white bg-blue-500;
   @apply hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
 }
+
+// improve form style under dark mode
+form {
+  input,
+  textarea {
+    @apply dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:border-gray-500;
+  }
+}

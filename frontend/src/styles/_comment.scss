@@ -53,10 +53,3 @@
   @apply dark:bg-gray-300 dark:text-gray-900
 }
 /* stylelint-enable */
-
-.comments-form {
-  input,
-  textarea {
-    @apply dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:border-gray-500;
-  }
-}
