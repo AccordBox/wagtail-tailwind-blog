@@ -31,9 +31,15 @@
     {% render_comment_list for page %}
   </div>
 
-  <div class="mb-4">
-    {% render_comment_form for page %}
-  </div>
+  {% if request.user.is_authenticated %}
+    <div class="mb-4">
+      {% render_comment_form for page %}
+    </div>
+  {% else %}
+    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+      Please login first and then submit comment
+    </div>
+  {% endif %}
 
 {% endblock %}
 
