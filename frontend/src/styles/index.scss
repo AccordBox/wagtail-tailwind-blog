@@ -18,3 +18,9 @@ form {
     @apply dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:border-gray-500;
   }
 }
+
+.swiper-button-next, .swiper-button-prev {
+  --swiper-navigation-color: #E5E7EB;
+  @apply hover:text-white;
+}
+
