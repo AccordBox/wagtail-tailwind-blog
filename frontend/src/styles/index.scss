@@ -19,8 +19,9 @@ form {
   }
 }
 
-.swiper-button-next, .swiper-button-prev {
-  --swiper-navigation-color: #E5E7EB;
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-color: #e5e7eb;
+
   @apply hover:text-white;
 }
-
