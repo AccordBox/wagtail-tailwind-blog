@@ -1,6 +1,8 @@
 ## Introduction
 
-This project is from my book [Build Blog With Wagtail CMS](https://leanpub.com/buildblogwithwagtailcms/)
+This open source project is for my book [Build Blog With Wagtail CMS](https://leanpub.com/buildblogwithwagtailcms/)
+
+**You can support my work by purchasing the ebook**
 
 Other books written by me
 
@@ -15,7 +17,11 @@ This book will teach you how to build a modern blog with `Wagtail CMS`
 By the end of this course, you will be able to:
 
 1. Understand `Docker` and use `Docker Compose` to do development
-1. Use `Tailwind CSS` as style solution, and `Stimulus` as frontend solution.
+1. Use `python-webpack-boilerplate` to jump start frontend project bundled by Webpack.  
+1. Install `Tailwind CSS` as the style solution.
+1. Install `Stimulus`, understand how it works and write Stimulus controllers.
+1. Learn how `Dark Mode` works in Tailwind CSS and use Stimulus controller to toggle the dark mode.
+1. Understand the benefit of the healthy Stimulus ecosystem by reusing 3-party Stimulus controller.
 1. Create blog models to work with Wagtail.
 1. Use `PDB` and `Django shell` to debug, test code and check data in terminal.
 1. Learn to use `RoutablePage` and add `Date` to the post url.
@@ -24,7 +30,6 @@ By the end of this course, you will be able to:
 1. Create contact page using Wagtail `FormBuilder`
 1. Build menu, meta tags, sitemap, robots.txt for better SEO.
 1. Build comment system based on `django-contrib-comments` which support `Generic Relations`
-1. Create Frontend project from `python-webpack-boilerplate` and load compiled CSS and JS in Django template.
 1. Use `Tribute.js`, `Axios` to add `Mention` and `Emoji` support to the comment form.
 1. Deploy the production app to DigitalOcean
 
@@ -39,8 +44,8 @@ By the end of this course, you will be able to:
 ## How to run on local
 
 ```bash
-$ git clone https://github.com/AccordBox/wagtail-bootstrap-blog
-$ cd wagtail-bootstrap-blog
+$ git clone https://github.com/AccordBox/wagtail-tailwind-blog
+$ cd wagtail-tailwind-blog
 ```
 
 First, let's build frontend assets, please make sure `node` is available.
