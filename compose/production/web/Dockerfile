@@ -1,20 +1,13 @@
-FROM node:12-stretch-slim as frontend-builder
+FROM node:16-stretch-slim as frontend-builder
 
-WORKDIR /app/frontend
-
-COPY ./frontend/package.json /app/frontend
-COPY ./frontend/package-lock.json /app/frontend
-
-ENV PATH ./node_modules/.bin/:$PATH
+WORKDIR /app
+COPY . .
 
 RUN npm install
-
-COPY ./frontend .
-
 RUN npm run build
 
 ################################################################################
-FROM python:3.8-slim-buster
+FROM python:3.10-slim-buster
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1

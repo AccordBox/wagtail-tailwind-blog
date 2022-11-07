@@ -18,7 +18,7 @@
   }
 
   li {
-    padding: 5px 5px;
+    padding: 5px;
     cursor: pointer;
 
     &.highlight {
@@ -45,7 +45,11 @@
   li {
     img {
       max-height: 16px;
+      display: inline;
     }
   }
+
+  // improve comment form style under dark mode
+  @apply dark:bg-gray-300 dark:text-gray-900
 }
 /* stylelint-enable */

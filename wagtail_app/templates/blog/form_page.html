@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags crispy_forms_tags %}
+
+{% block content %}
+
+  <h1 class="text-4xl mb-4">Contact</h1>
+
+  {% comment %}
+    mb-3 mb-2 appearance-none leading-normal block border py-2 focus:outline-none border-gray-300 bg-white w-full px-4 text-gray-700 rounded-lg
+    For better solution, please check https://www.accordbox.com/blog/render-django-form-with-tailwind-css-style/
+  {% endcomment %}
+
+  <form action="{% pageurl page %}" method="POST" >
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg" >Submit</button>
+  </form>
+
+{% endblock %}

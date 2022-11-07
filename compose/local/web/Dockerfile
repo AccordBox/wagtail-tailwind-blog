@@ -1,9 +1,10 @@
-FROM python:3.8-slim-buster
+FROM python:3.10-slim-buster
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
 # Install system packages required by Wagtail and Django.
+# https://github.com/wagtail/wagtail/blob/v4.0.2/wagtail/project_template/Dockerfile
 RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
     build-essential \
     libpq-dev \

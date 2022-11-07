@@ -19,4 +19,3 @@ run webpack in `watch` mode.
 ### `npm run build`
 
 [production mode](https://webpack.js.org/guides/production/), Webpack would focus on minified bundles, lighter weight source maps, and optimized assets to improve load time.
-

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags blogapp_tags %}
+
+{% block content %}
+
+  {% if page.filter_term %}
+    <div class="px-4 py-3 leading-normal text-blue-700 bg-blue-100 rounded-lg mb-4" role="alert">
+      {{ page.filter_type }}: {{ page.filter_term }}
+    </div>
+  {% endif %}
+
+  {% for post in posts %}
+    <div class="mb-4 rounded-lg border border-opacity-75 border-gray-300 shadow-xl overflow-hidden dark:text-white dark:border-gray-500">
+      {% if post.header_image %}
+        {% image post.header_image original as header_image %}
+        <a href="{% post_page_date_slug_url post blog_page %}">
+          <img src="{{ header_image.url }}">
+        </a>
+      {% endif %}
+
+      <div class="p-6">
+        <h2 class="title-font text-3xl text-blue-900 mb-6 dark:text-white ">
+          <a href="{% post_page_date_slug_url post blog_page %}">{{ post.title }}</a>
+        </h2>
+        <p>
+          {{ post.search_description }}
+        </p>
+        <a href="{% post_page_date_slug_url post blog_page %}" class="px-4 py-3 text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 rounded-lg">Read More &rarr;</a>
+      </div>
+
+      <div class="bg-gray-100 px-6 py-4 dark:bg-gray-700">
+        <h4 class="text-base text-gray-900 dark:text-gray-400">Posted on {{ post.post_date }}</h4>
+      </div>
+
+    </div>
+  {% endfor %}
+
+
+  {# Pagination #}
+  {# https://docs.djangoproject.com/en/4.0/topics/pagination/#paginating-a-listview #}
+
+  <nav aria-label="Page navigation">
+    <ul class="flex pl-0 rounded list-none flex-wrap">
+
+      {% if posts.has_previous %}
+        <li>
+          <a href="{% url_replace request page=posts.previous_page_number %}"
+             class="text-blue-500 dark:text-white inline-block py-2 px-4 bg-white  border border-gray-300 border-r-0 rounded-l-lg hover:bg-blue-500 hover:text-white dark:bg-gray-700 dark:border-gray-500 dark:hover:bg-blue-500 dark:hover:text-white">
+            Previous
+          </a>
+        </li>
+      {% else %}
+        <li>
+          <a href="#" class="pointer-events-none text-gray-300 inline-block py-2 px-4 bg-white  border border-gray-300 border-r-0 rounded-l-lg hover:bg-blue-500 hover:text-white dark:bg-gray-700 dark:border-gray-500 dark:hover:bg-blue-500 dark:hover:text-white">
+            Previous
+          </a>
+        </li>
+      {% endif %}
+
+      {% if posts.has_next %}
+        <li>
+          <a href="{% url_replace request page=posts.next_page_number %}"
+             class="text-blue-500 dark:text-white inline-block py-2 px-4 bg-white  border border-gray-300 rounded-r-lg hover:bg-blue-500 hover:text-white dark:bg-gray-700 dark:border-gray-500 dark:hover:bg-blue-500 dark:hover:text-white">
+            Next
+          </a>
+        </li>
+      {% else %}
+        <li>
+          <a href="#" class="pointer-events-none text-gray-300 inline-block py-2 px-4 bg-white  border border-gray-300 rounded-r-lg hover:bg-blue-500 hover:text-white dark:bg-gray-700 dark:border-gray-500 dark:hover:bg-blue-500 dark:hover:text-white">
+            Next
+          </a>
+        </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags wagtailmetadata_tags comments %}
+
+{% block meta_tag %}
+  {% meta_tags %}
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/monokai-sublime.min.css"
+        integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+{% endblock %}
+
+{% block content %}
+
+  <div class="prose max-w-full dark:prose-dark">
+    {% image page.header_image original as header_image %}
+    <img src="{{ header_image.url }}" alt="{{ header_image.alt }}">
+    <h1>{{ page.title }}</h1>
+    <hr/>
+    <div></div>
+  </div>
+
+  <div class="prose max-w-full dark:prose-dark">
+    {% include "blog/components/streamfield.html" %}
+  </div>
+
+  <div class="mb-4">
+    {% render_comment_list for page %}
+  </div>
+
+  {% if request.user.is_authenticated %}
+    <div class="mb-4">
+      {% render_comment_form for page %}
+    </div>
+  {% else %}
+    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+      Please login first and then submit comment
+    </div>
+  {% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"
+          integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>hljs.highlightAll();</script>
+
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [['$','$']],
+          displayMath: [['$$','$$']] ,
+          processEscapes: true
+        },
+        "HTML-CSS": { availableFonts: ["TeX"] }
+      });
+  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js">
+  </script>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div data-controller="carousel" class="swiper"
+     data-carousel-options-value='{ "navigation": { "nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev" }, "loop": true , "autoplay": {"delay": 2000} }'
+>
+
+  <div class="swiper-wrapper">
+    {% for item in block.value %}
+      <div class="swiper-slide">
+        {% image item width-400 as img %}
+        <img class="block w-full select-none" src="{{ img.url }}" alt="{{ img.alt }}">
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+
+</div>

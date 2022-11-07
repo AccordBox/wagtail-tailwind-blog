@@ -17,6 +17,7 @@ module.exports = merge(common, {
     }),
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash].css",
+      chunkFilename: "css/[id].[contenthash].css",
     }),
   ],
   module: {

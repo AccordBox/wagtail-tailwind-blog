@@ -1,12 +1,14 @@
+// This is the scss entry file
 import "../styles/index.scss";
 
-import "bootstrap/dist/js/bootstrap.bundle";
-import { setupComment } from "../components/comment";
+import { Application } from "@hotwired/stimulus";
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
+import Carousel from 'stimulus-carousel';
+// load swiper css
+import "swiper/css/bundle";
 
-window.AccordBox = {
-  setupComment: setupComment
-};
+window.Stimulus = Application.start();
+const context = require.context("../controllers", true, /\.js$/);
+window.Stimulus.load(definitionsFromContext(context));
 
-window.document.addEventListener("DOMContentLoaded", function () {
-  window.console.log("dom ready 1");
-});
+window.Stimulus.register('carousel', Carousel);

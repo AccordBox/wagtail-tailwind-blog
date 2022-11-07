@@ -7,4 +7,4 @@ set -o nounset
 python /app/manage.py collectstatic --noinput
 python /app/manage.py migrate
 
-/usr/local/bin/gunicorn wagtail_bootstrap_blog.wsgi:application --bind 0.0.0.0:8000 --chdir=/app
+/usr/local/bin/gunicorn wagtail_app.wsgi:application --bind 0.0.0.0:8000 --chdir=/app

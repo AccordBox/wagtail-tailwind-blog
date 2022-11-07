@@ -1,0 +1,65 @@
+{% load static wagtailuserbar webpack_loader %}
+
+<!DOCTYPE html>
+<html class="h-100 {{ request.COOKIES.theme|default:'' }}" lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    {% block meta_tag %}
+      <title>
+        {% block title %}
+          {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+        {% endblock %}
+        {% block title_suffix %}
+          {% with self.get_site.site_name as site_name %}
+            {% if site_name %}- {{ site_name }}{% endif %}
+          {% endwith %}
+        {% endblock %}
+      </title>
+      <meta name="description" content="{{ page.search_description }}" />
+    {% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% if page.canonical_url %}
+      <link rel="canonical" href="{{ page.canonical_url }}"/>
+    {% endif %}
+
+    {# Global stylesheets #}
+    {% stylesheet_pack 'app' %}
+
+    {% block extra_css %}
+      {# Override this in templates to add extra stylesheets #}
+    {% endblock %}
+
+  </head>
+
+  <body class="dark:bg-gray-900 dark:text-white {% block body_class %}{% endblock %}">
+    <div class="flex flex-col min-h-screen">
+
+      {% wagtailuserbar %}
+
+      {% include 'blog/components/navbar.html' %}
+
+      <div class="w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="flex flex-row flex-wrap py-4">
+          <main role="main" class="w-full sm:w-2/3 md:w-3/4 lg:w-8/12 px-2 mb-4">
+            {% block content %}{% endblock %}
+          </main>
+          {% include 'blog/components/sidebar.html' %}
+        </div>
+      </div>
+
+      {% include 'blog/components/footer.html' %}
+
+    </div>
+  </body>
+
+  {# Global javascript #}
+  {% javascript_pack 'app' %}
+
+  {% block extra_js %}
+    {# Override this in templates to add extra javascript #}
+  {% endblock %}
+
+</html>

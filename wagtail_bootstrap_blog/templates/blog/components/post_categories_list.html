@@ -1,7 +1,0 @@
-{% if post_categories %}
-    <i class="bi bi-tag-fill"></i>
-    {% for postpage_category in post_categories %}
-        {{ postpage_category.blog_category.name }}
-    {% endfor %}
-    &nbsp;
-{% endif %}

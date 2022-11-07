@@ -3,6 +3,7 @@ const Webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const StylelintPlugin = require("stylelint-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 const common = require("./webpack.common.js");
 
@@ -18,21 +19,20 @@ module.exports = merge(common, {
       "process.env.NODE_ENV": JSON.stringify("development"),
     }),
     new StylelintPlugin({
-      files: Path.join("src", "**/*.s?(a|c)ss"),
+      files: Path.resolve(__dirname, "../src/**/*.s?(a|c)ss"),
     }),
-    new MiniCssExtractPlugin({ filename: "css/[name].css" }),
+    new ESLintPlugin({
+      extensions: "js",
+      emitWarning: true,
+      files: Path.resolve(__dirname, "../src"),
+    }),
+    new MiniCssExtractPlugin({
+      filename: "css/[name].css",
+      chunkFilename: "css/[id].css",
+    }),
   ],
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        include: Path.resolve(__dirname, "../src"),
-        enforce: "pre",
-        loader: "eslint-loader",
-        options: {
-          emitWarning: true,
-        },
-      },
       {
         test: /\.html$/i,
         loader: "html-loader",
@@ -46,7 +46,12 @@ module.exports = merge(common, {
         test: /\.s?css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader?sourceMap=true",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
           "postcss-loader",
           "sass-loader",
         ],

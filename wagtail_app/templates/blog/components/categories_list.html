@@ -1,0 +1,20 @@
+{% load wagtailroutablepage_tags %}
+
+<div class="mb-4 border rounded-lg border-opacity-75 border-gray-300 shadow-xl overflow-hidden dark:border-gray-500">
+  <div class="bg-gray-100 text-gray-900 px-6 py-4 dark:bg-gray-700 dark:text-gray-400">
+    <h4 class="text-base font-medium">Categories</h4>
+  </div>
+  <div class="px-6 py-4">
+    <nav class="list-none">
+      {% for category in categories %}
+        <li>
+          <a href="{% routablepageurl blog_page "post_by_category" category.slug %}" class="text-gray-600 hover:text-gray-800 no-underline hover:underline dark:text-white">
+            {{ category.name }}
+          </a>
+        </li>
+      {% empty %}
+        'No categories yet'
+      {% endfor %}
+    </nav>
+  </div>
+</div>

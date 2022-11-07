@@ -17,24 +17,27 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/web/Dockerfile
-    image: wagtail_bootstrap_blog_prod_web
+    image: wagtail_blog_prod_web
     command: /start
     volumes:
       - staticfiles:/app/static
       - mediafiles:/app/media
     env_file:
       - ./.env/.prod-sample
+    environment:
+        - RECAPTCHA_PRIVATE_KEY
+        - RECAPTCHA_PUBLIC_KEY
     depends_on:
       - db
 
   db:
-    image: postgres:12.0-alpine
+    image: postgres:14.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_DB=wagtail_bootstrap_blog
-      - POSTGRES_USER=wagtail_bootstrap_blog
-      - POSTGRES_PASSWORD=wagtail_bootstrap_blog
+      - POSTGRES_DB=wagtail_blog
+      - POSTGRES_USER=wagtail_blog
+      - POSTGRES_PASSWORD=wagtail_blog
 
 volumes:
   postgres_data:

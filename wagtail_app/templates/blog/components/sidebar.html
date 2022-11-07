@@ -1,0 +1,28 @@
+{% load blogapp_tags wagtailroutablepage_tags %}
+
+<div class="w-full sm:w-1/3 md:w-1/4 lg:w-4/12 px-2">
+  {% if blog_page %}
+
+    <div class="mb-4 border rounded-lg border-opacity-75 border-gray-300 shadow-xl overflow-hidden dark:border-gray-500">
+      <div class="bg-gray-100 text-gray-900 px-6 py-4 dark:bg-gray-700 dark:text-gray-400">
+        <h4 class="text-base font-medium">Search</h4>
+      </div>
+      <div class="px-6 py-4">
+        <form role="search" method="get" action="/search/">
+          <div class="relative text-gray-700">
+            <input type="search"
+              class="w-full h-10 pl-3 pr-8 text-base placeholder-gray-600 border rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+              name="q" placeholder="Search&hellip;"
+              title="Search for:" />
+            <button class="absolute inset-y-0 right-0 flex items-center px-4 text-white bg-blue-500 rounded-r-lg border-blue-500 hover:bg-blue-600" type="submit">Go</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {% categories_list %}
+
+    {% tags_list %}
+
+  {% endif %}
+</div>
