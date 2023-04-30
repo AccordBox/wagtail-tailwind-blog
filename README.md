@@ -87,3 +87,20 @@ The demo is also online if you want to check.
 ## Screenshot
 
 ![](./misc/screenshot.png)
+
+
+## M1 Mac
+
+### update browserlist 
+npx browserslist@latest --update-db
+
+
+### install rosetta
+softwareupdate --install-rosetta
+
+### tell docker to build and run on amd64 platform
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+docker-compose build
+docker-compose up
+### Make sure node version is:
+v18.16.0
