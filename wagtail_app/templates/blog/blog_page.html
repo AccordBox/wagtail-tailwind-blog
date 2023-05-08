@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags blogapp_tags %}
+{% load wagtailcore_tags wagtailimages_tags blogapp_tags wagtailmetadata_tags %}
 
 {% block content %}
 
-  
+<div class="prose max-w-full dark:prose-dark">
+    {% include "blog/components/streamfield.html" %}
+  </div>
 
 {% endblock %}

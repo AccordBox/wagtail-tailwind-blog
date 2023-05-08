@@ -25,6 +25,12 @@ from .blocks import BodyBlock
 
 class BlogPage(RoutablePageMixin, Page):
 
+    body = StreamField(BodyBlock(), blank=True, use_json_field=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel("body")
+    ]
+
     def get_context(self, request, *args, **kwargs):
         context = super(BlogPage, self).get_context(request, *args, **kwargs)
         context['posts'] = self.get_paginated_posts(request, self.posts)
