@@ -4,6 +4,7 @@ const pwd = process.env.PWD;
 // We can add current project paths here
 const projectPaths = [
   Path.join(pwd, "./wagtail_app/templates/**/*.html"),
+  Path.join(pwd, "node_modules/preline/dist/*.js"),
   // add js file paths if you need
 ];
 
@@ -65,5 +66,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
+    require('preline/plugin'),
   ],
 }

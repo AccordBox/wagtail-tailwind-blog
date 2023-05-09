@@ -1,6 +1,6 @@
+import('preline')
 // This is the scss entry file
 import "../styles/index.scss";
-
 import { Application } from "@hotwired/stimulus";
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 import Carousel from 'stimulus-carousel';

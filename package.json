@@ -61,6 +61,7 @@
     "camelcase-keys": "^8.0.2",
     "core-js": "^3.20.3",
     "js-cookie": "^3.0.1",
+    "preline": "^1.8.0",
     "snakecase-keys": "^5.4.4",
     "stimulus-carousel": "^4.0.0",
     "tributejs": "^5.1.3"
