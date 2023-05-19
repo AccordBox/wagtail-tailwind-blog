@@ -7,8 +7,8 @@
   <div class="swiper-wrapper">
     {% for item in block.value %}
       <div class="swiper-slide">
-        {% image item width-400 as img %}
-        <img class="block w-full select-none" src="{{ img.url }}" alt="{{ img.alt }}">
+        {% image item width-1920 as img %}
+        <img class="block w-full select-none rounded-xl" src="{{ img.url }}" alt="{{ img.alt }}">
       </div>
     {% endfor %}
   </div>

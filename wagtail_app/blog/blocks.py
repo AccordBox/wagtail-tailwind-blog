@@ -9,6 +9,7 @@ from wagtailmarkdown.blocks import MarkdownBlock
 
 class ImageText(StructBlock):
     reverse = BooleanBlock(required=False)
+    title = RichTextBlock(required=False)
     text = RichTextBlock()
     image = ImageChooserBlock()
 
@@ -19,6 +20,9 @@ class BodyBlock(StreamBlock):
     paragraph = RichTextBlock()
     markdown = MarkdownBlock(icon="code")
 
+
+
+    testimonials = ListBlock(RichTextBlock())
     image_text = ImageText()
     image_carousel = ListBlock(ImageChooserBlock())
     thumbnail_gallery = ListBlock(ImageChooserBlock())

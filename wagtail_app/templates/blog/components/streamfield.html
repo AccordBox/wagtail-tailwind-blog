@@ -22,6 +22,10 @@
       <div>
         {% include 'blog/blocks/image_carousel.html' with block=block only %}
       </div>
+    {% elif block.block_type == 'testimonials' %}
+      <div>
+        {% include 'blog/blocks/testimonials.html' with block=block only %}
+      </div>
     {% elif block.block_type == 'markdown' %}
       {{ block.value|markdown|safe }}
     {% else %}
