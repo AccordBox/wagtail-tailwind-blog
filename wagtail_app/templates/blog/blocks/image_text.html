@@ -1,26 +1,14 @@
 {% load wagtailcore_tags wagtailimages_tags %}
-
-<!-- <div class="flex items-center mx-auto flex-col {% if block.value.reverse %}sm:flex-row-reverse{% else %}sm:flex-row{% endif %}">
-  <div class="w-full sm:w-1/3 md:w-1/4 lg:w-5/12 px-2">
-    <div>
-      {{ block.value.text|richtext }}
-    </div>
-  </div>
-  <div class="w-full sm:w-2/3 md:w-3/4 lg:w-7/12 px-2">
-    {% image block.value.image width-800 as img %}
-    <img alt="" src="{{ img.url }}">
-  </div>
-</div> -->
-<!-- Features -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto {% if block.value.reverse %}sm:flex-row-reverse{% else %}sm:flex-row{% endif %}">
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
   <!-- Grid -->
-  <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
+  <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32 mx-auto">
+    {% if block.value.reverse %}
     <div>    
       {% image block.value.image width-800 as img %}
       <img class="rounded-xl" alt="" src="{{ img.url }}">
     </div>
+    
     <!-- End Col -->
-
     <div class="mt-5 sm:mt-10 lg:mt-0">
       <div class="space-y-6 sm:space-y-8">
         <!-- Title -->
@@ -35,6 +23,28 @@
         <!-- End Title -->
       </div>
     </div>
+    {% else %}
+    <!-- End Col -->
+    <div class="mt-5 sm:mt-10 lg:mt-0">
+      <div class="space-y-6 sm:space-y-8">
+        <!-- Title -->
+        <div class="space-y-2 md:space-y-4">
+          <h2 class="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-gray-200">
+            {{ block.value.title|richtext }}
+          </h2>
+          <p class="text-gray-500">
+            {{ block.value.text|richtext }}
+          </p>
+        </div>
+        <!-- End Title -->
+      </div>
+    </div>
+    <div>    
+      {% image block.value.image width-800 as img %}
+      <img class="rounded-xl" alt="" src="{{ img.url }}">
+    </div>
+    {% endif %}
+
     <!-- End Col -->
   </div>
   <!-- End Grid -->
