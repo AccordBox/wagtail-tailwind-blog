@@ -16,11 +16,8 @@
     "startkit",
     "frontend"
   ],
-  "author": "Michael Yin",
+  "author": "Lumunix",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/AccordBox/python-webpack-boilerplate/issues"
-  },
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",

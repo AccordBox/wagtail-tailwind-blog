@@ -84,9 +84,7 @@ The demo is also online if you want to check.
 
 * [Wagtail Blog Demo](http://wagtail-blog.accordbox.com)
 
-## Screenshot
 
-![](./misc/screenshot.png)
 
 
 ## M1 Mac

@@ -31,7 +31,6 @@ urlpatterns = [
     path('documents/', include(wagtaildocs_urls)),
     path('sitemap.xml', sitemap),
     path('robots.txt', wagtail_app.blog.views.RobotsView.as_view()),
-    path('comments/', include('wagtail_app.custom_comments.urls')),
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's serving mechanism

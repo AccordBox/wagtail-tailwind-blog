@@ -69,7 +69,7 @@ INSTALLED_APPS = [
     'django_comments',
 
     'wagtail_app.blog',
-    'wagtail_app.custom_comments',
+    
 ]
 
 MIDDLEWARE = [
@@ -197,7 +197,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
 
-COMMENTS_APP = 'wagtail_app.custom_comments'
 
 if not DEBUG:
     SECRET_KEY = os.environ.get("SECRET_KEY")
