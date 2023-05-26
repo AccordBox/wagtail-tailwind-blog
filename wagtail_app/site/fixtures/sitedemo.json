@@ -1,0 +1,623 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators",
+    "permissions": [
+      [
+        "access_admin",
+        "wagtailadmin",
+        "admin"
+      ],
+      [
+        "add_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "change_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "delete_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "add_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "change_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "delete_image",
+        "wagtailimages",
+        "image"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Editors",
+    "permissions": [
+      [
+        "access_admin",
+        "wagtailadmin",
+        "admin"
+      ],
+      [
+        "add_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "change_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "delete_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "add_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "change_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "delete_image",
+        "wagtailimages",
+        "image"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$BxlYSy5TYSX9tgsTtmpPKD$XC6tEUjKfK9ZyTya3N5GkHKqKNtEHyveogayGscsPg8=",
+    "last_login": "2022-10-27T02:29:35.310Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-10-27T02:55:23.317Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
+  "model": "wagtailusers.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "submitted_notifications": true,
+    "approved_notifications": true,
+    "rejected_notifications": true,
+    "updated_comments_notifications": true,
+    "preferred_language": "",
+    "current_time_zone": "",
+    "avatar": ""
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 1,
+  "fields": {
+    "collection": 1,
+    "title": "image_1.jpeg",
+    "file": "original_images/image_1.jpeg",
+    "width": 1280,
+    "height": 853,
+    "created_at": "2022-10-27T03:00:12.703Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 122649,
+    "file_hash": "96002817cebbd381637ca0488521dec676a39bb8"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 2,
+  "fields": {
+    "collection": 1,
+    "title": "image_2.jpeg",
+    "file": "original_images/image_2.jpeg",
+    "width": 1280,
+    "height": 853,
+    "created_at": "2022-10-27T03:00:12.956Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 287959,
+    "file_hash": "736c1f6567a97c2efe471d7ff704fc508bf32bba"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 3,
+  "fields": {
+    "collection": 1,
+    "title": "image_3.jpeg",
+    "file": "original_images/image_3.jpeg",
+    "width": 1280,
+    "height": 853,
+    "created_at": "2022-10-27T03:00:13.191Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 213242,
+    "file_hash": "e9ec819b7c458ec4517e924e43b2d282b53dad13"
+  }
+},
+{
+  "model": "wagtailcore.locale",
+  "pk": 1,
+  "fields": {
+    "language_code": "en"
+  }
+},
+{
+  "model": "wagtailcore.site",
+  "pk": 2,
+  "fields": {
+    "hostname": "127.0.0.1",
+    "port": 8000,
+    "site_name": "",
+    "root_page": 34,
+    "is_default_site": true
+  }
+},
+{
+  "model": "wagtailcore.collection",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 0,
+    "name": "Root"
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 1,
+    "translation_key": "dd0206fb-3eb7-4064-8e4a-f1ae2a38bc0e",
+    "locale": 1,
+    "latest_revision": null,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": null,
+    "last_published_at": null,
+    "live_revision": null,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Root",
+    "draft_title": "Root",
+    "slug": "root",
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
+    "url_path": "/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": null,
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 2,
+  "fields": {
+    "path": "00010001",
+    "depth": 2,
+    "numchild": 0,
+    "translation_key": "14694ca5-6aa0-454a-8e8d-d3d3061a119b",
+    "locale": 1,
+    "latest_revision": null,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": null,
+    "last_published_at": null,
+    "live_revision": null,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Welcome to your new Wagtail site!",
+    "draft_title": "Welcome to your new Wagtail site!",
+    "slug": "home",
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
+    "url_path": "/home/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": null,
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 34,
+  "fields": {
+    "path": "00010002",
+    "depth": 2,
+    "numchild": 5,
+    "translation_key": "0dc037c9-2d5d-4aff-9bf3-27dad7a0e3fc",
+    "locale": 1,
+    "latest_revision": null,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2022-10-27T02:56:22.731Z",
+    "last_published_at": "2022-10-27T02:56:22.731Z",
+    "live_revision": null,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "SitePage",
+    "draft_title": "SitePage",
+    "slug": "sitepage",
+    "content_type": [
+      "site",
+      "sitepage"
+    ],
+    "url_path": "/sitepage/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": "2022-10-27T02:56:22.682Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 39,
+  "fields": {
+    "path": "000100020005",
+    "depth": 3,
+    "numchild": 0,
+    "translation_key": "049298a7-03f9-4893-a5e5-19dcae038c0f",
+    "locale": 1,
+    "latest_revision": null,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2022-10-27T02:19:37.945Z",
+    "last_published_at": "2022-10-27T02:30:07.992Z",
+    "live_revision": null,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Contact",
+    "draft_title": "Contact",
+    "slug": "contact",
+    "content_type": [
+      "site",
+      "formpage"
+    ],
+    "url_path": "/sitepage/contact/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": true,
+    "search_description": "",
+    "latest_revision_created_at": "2022-10-27T02:30:07.923Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.workflowpage",
+  "pk": 1,
+  "fields": {
+    "workflow": 1
+  }
+},
+{
+  "model": "wagtailcore.workflowtask",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "workflow": 1,
+    "task": 1
+  }
+},
+{
+  "model": "wagtailcore.task",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators approval",
+    "content_type": [
+      "wagtailcore",
+      "groupapprovaltask"
+    ],
+    "active": true
+  }
+},
+{
+  "model": "wagtailcore.workflow",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators approval",
+    "active": true
+  }
+},
+{
+  "model": "wagtailcore.groupapprovaltask",
+  "pk": 1,
+  "fields": {
+    "groups": [
+      [
+        "Moderators"
+      ]
+    ]
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 1,
+  "fields": {
+    "content_type": [
+      "site",
+      "formpage"
+    ],
+    "label": "Contact",
+    "action": "wagtail.create",
+    "data": {},
+    "timestamp": "2022-10-27T02:19:37.875Z",
+    "uuid": "7fdfad41-b246-4350-b941-c306ee03daff",
+    "user": [
+      "admin"
+    ],
+    "revision": null,
+    "content_changed": true,
+    "deleted": false,
+    "page": 39
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 2,
+  "fields": {
+    "content_type": [
+      "site",
+      "formpage"
+    ],
+    "label": "Contact",
+    "action": "wagtail.publish",
+    "data": {},
+    "timestamp": "2022-10-27T02:19:38.002Z",
+    "uuid": "7fdfad41-b246-4350-b941-c306ee03daff",
+    "user": [
+      "admin"
+    ],
+    "revision": null,
+    "content_changed": true,
+    "deleted": false,
+    "page": 39
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 3,
+  "fields": {
+    "content_type": [
+      "site",
+      "formpage"
+    ],
+    "label": "Contact",
+    "action": "wagtail.edit",
+    "data": {},
+    "timestamp": "2022-10-27T02:30:07.957Z",
+    "uuid": "47480c65-265b-434f-b0b0-11f840361cbd",
+    "user": [
+      "admin"
+    ],
+    "revision": 34,
+    "content_changed": true,
+    "deleted": false,
+    "page": 39
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 4,
+  "fields": {
+    "content_type": [
+      "site",
+      "formpage"
+    ],
+    "label": "Contact",
+    "action": "wagtail.publish",
+    "data": {},
+    "timestamp": "2022-10-27T02:30:08.049Z",
+    "uuid": "47480c65-265b-434f-b0b0-11f840361cbd",
+    "user": [
+      "admin"
+    ],
+    "revision": 34,
+    "content_changed": true,
+    "deleted": false,
+    "page": 39
+  }
+},
+{
+  "model": "wagtailcore.pagesubscription",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "page": 39,
+    "comment_notifications": true
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Django",
+    "slug": "django"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Wagtail",
+    "slug": "wagtail"
+  }
+},
+{
+  "model": "wagtailmenus.mainmenuitem",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "link_page": 39,
+    "link_url": null,
+    "url_append": "",
+    "handle": "",
+    "link_text": "",
+    "allow_subnav": true,
+    "menu": 1
+  }
+},
+{
+  "model": "wagtailmenus.mainmenu",
+  "pk": 1,
+  "fields": {
+    "site": [
+      "127.0.0.1",
+      8000
+    ],
+    "max_levels": 2
+  }
+},
+{
+  "model": "site.sitepage",
+  "pk": 34,
+  "fields": {}
+},
+
+{
+  "model": "site.formfield",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "clean_name": "name",
+    "label": "Name",
+    "field_type": "singleline",
+    "required": true,
+    "choices": "",
+    "default_value": "",
+    "help_text": "",
+    "page": 39
+  }
+},
+{
+  "model": "site.formfield",
+  "pk": 2,
+  "fields": {
+    "sort_order": 1,
+    "clean_name": "email",
+    "label": "Email",
+    "field_type": "email",
+    "required": true,
+    "choices": "",
+    "default_value": "",
+    "help_text": "",
+    "page": 39
+  }
+},
+{
+  "model": "site.formfield",
+  "pk": 3,
+  "fields": {
+    "sort_order": 2,
+    "clean_name": "message",
+    "label": "Message",
+    "field_type": "multiline",
+    "required": true,
+    "choices": "",
+    "default_value": "",
+    "help_text": "",
+    "page": 39
+  }
+},
+{
+  "model": "site.formpage",
+  "pk": 39,
+  "fields": {
+    "to_address": "",
+    "from_address": "",
+    "subject": "",
+    "thank_you_text": "<p data-block-key=\"66j1f\">Thank you</p>"
+  }
+}
+]

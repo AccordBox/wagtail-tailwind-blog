@@ -45,7 +45,7 @@ By the end of this course, you will be able to:
 
 ```bash
 $ git clone https://github.com/AccordBox/wagtail-tailwind-blog
-$ cd wagtail-tailwind-blog
+$ cd wagtail-tailwind-site
 ```
 
 First, let's build frontend assets, please make sure `node` is available.

@@ -11,7 +11,7 @@ Class-based views
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    2. Add a URL to urlpatterns:  path('site/', include('site.urls'))
 """
 from django.contrib import admin
 from django.urls import path, include
@@ -22,7 +22,7 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.contrib.sitemaps.views import sitemap
-import wagtail_app.blog.views
+import wagtail_app.site.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +30,7 @@ urlpatterns = [
     path('cms/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
     path('sitemap.xml', sitemap),
-    path('robots.txt', wagtail_app.blog.views.RobotsView.as_view()),
+    path('robots.txt', wagtail_app.site.views.RobotsView.as_view()),
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's serving mechanism

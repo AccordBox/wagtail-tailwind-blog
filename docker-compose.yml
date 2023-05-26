@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/web/Dockerfile
-    image: wagtail_blog_web
+    image: wagtail_site_web
     command: /start
     volumes:
       - .:/app
@@ -23,9 +23,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_DB=wagtail_blog
-      - POSTGRES_USER=wagtail_blog
-      - POSTGRES_PASSWORD=wagtail_blog
+      - POSTGRES_DB=wagtail_site
+      - POSTGRES_USER=wagtail_site
+      - POSTGRES_PASSWORD=wagtail_site
 
 volumes:
   postgres_data:

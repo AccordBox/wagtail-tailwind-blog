@@ -9,7 +9,7 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0001_initial'),
+        ('site', '0001_initial'),
     ]
 
     operations = [

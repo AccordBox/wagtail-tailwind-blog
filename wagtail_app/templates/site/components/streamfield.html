@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags blogapp_tags %}
+{% load static wagtailcore_tags siteapp_tags %}
 
 {% with blocks=page.body %}
   {% for block in blocks %}
@@ -16,15 +16,15 @@
       </div>
     {% elif block.block_type == 'image_text' %}
       <div>
-        {% include 'blog/blocks/image_text.html' with block=block only %}
+        {% include 'site/blocks/image_text.html' with block=block only %}
       </div>
     {% elif block.block_type == 'image_carousel' %}
       <div>
-        {% include 'blog/blocks/image_carousel.html' with block=block only %}
+        {% include 'site/blocks/image_carousel.html' with block=block only %}
       </div>
     {% elif block.block_type == 'testimonials' %}
       <div>
-        {% include 'blog/blocks/testimonials.html' with block=block only %}
+        {% include 'site/blocks/testimonials.html' with block=block only %}
       </div>
     {% elif block.block_type == 'markdown' %}
       {{ block.value|markdown|safe }}

@@ -1,8 +1,7 @@
-from ..models import BlogCategory, Tag
 from django.template import Library, loader
 from urllib.parse import urlparse, urlunparse
 from django.http import QueryDict
-from wagtail_app.blog.utils import render_markdown
+from wagtail_app.site.utils import render_markdown
 
 register = Library()
 

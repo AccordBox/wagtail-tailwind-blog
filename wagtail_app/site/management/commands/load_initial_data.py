@@ -26,8 +26,8 @@ class Command(BaseCommand):
                 default_storage.save(path + file_name, file_)
 
     def handle(self, **options):
-        fixtures_dir = settings.BASE_DIR / "wagtail_app" / "blog" / "fixtures"
-        fixture_file = fixtures_dir / "blogdemo.json"
+        fixtures_dir = settings.BASE_DIR / "wagtail_app" / "site" / "fixtures"
+        fixture_file = fixtures_dir / "sitedemo.json"
 
         print("Copying media files to configured storage...")
         local_storage = FileSystemStorage(os.path.join(fixtures_dir, "media"))

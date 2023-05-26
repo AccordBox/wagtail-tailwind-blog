@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('wagtailcore', '0077_alter_revision_user'),
-        ('blog', '0004_alter_postpage_body'),
+        ('site', '0004_alter_postpage_body'),
     ]
 
     operations = [
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
                 ('choices', models.TextField(blank=True, help_text='Comma or new line separated list of choices. Only applicable in checkboxes, radio and dropdown.', verbose_name='choices')),
                 ('default_value', models.TextField(blank=True, help_text='Default value. Comma or new line separated values supported for checkboxes.', verbose_name='default value')),
                 ('help_text', models.CharField(blank=True, max_length=255, verbose_name='help text')),
-                ('page', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='form_fields', to='blog.formpage')),
+                ('page', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='form_fields', to='site.formpage')),
             ],
             options={
                 'ordering': ['sort_order'],

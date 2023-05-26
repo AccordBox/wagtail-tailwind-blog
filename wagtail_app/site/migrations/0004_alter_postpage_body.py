@@ -10,7 +10,7 @@ import wagtailmarkdown.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0003_postpage_post_date'),
+        ('site', '0003_postpage_post_date'),
     ]
 
     operations = [

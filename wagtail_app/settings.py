@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     'wagtailmetadata',
     'django_comments',
 
-    'wagtail_app.blog',
+    'wagtail_app.site',
     
 ]
 
@@ -97,7 +97,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'wagtailmenus.context_processors.wagtailmenus',
-                'wagtail_app.blog.context_processors.blog_page'
+                'wagtail_app.site.context_processors.site_page'
             ],
         },
     },

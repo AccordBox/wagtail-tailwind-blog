@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('wagtailimages', '0024_index_image_file_hash'),
-        ('blog', '0005_formpage_formfield'),
+        ('site', '0005_formpage_formfield'),
     ]
 
     operations = [
