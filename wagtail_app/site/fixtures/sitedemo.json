@@ -519,22 +519,6 @@
   }
 },
 {
-  "model": "taggit.tag",
-  "pk": 1,
-  "fields": {
-    "name": "Django",
-    "slug": "django"
-  }
-},
-{
-  "model": "taggit.tag",
-  "pk": 2,
-  "fields": {
-    "name": "Wagtail",
-    "slug": "wagtail"
-  }
-},
-{
   "model": "wagtailmenus.mainmenuitem",
   "pk": 1,
   "fields": {

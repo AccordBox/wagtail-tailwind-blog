@@ -31,13 +31,6 @@ class SitePage(RoutablePageMixin, Page):
         FieldPanel("body")
     ]
 
-
-
-@register_snippet
-class Tag(TaggitTag):
-    class Meta:
-        proxy = True
-
 class FormField(AbstractFormField):
     page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
 
