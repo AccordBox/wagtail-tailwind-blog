@@ -19,9 +19,19 @@ from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
 from modelcluster.tags import ClusterTaggableManager
 from wagtailmetadata.models import MetadataPageMixin
+from django.db import models
+from wagtail.contrib.settings.models import (
+    BaseSiteSetting,
+    register_setting,
+)
 
 from .blocks import BodyBlock
 
+
+@register_setting
+class SocialMediaSettings(BaseSiteSetting):
+    facebook = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
 
 class SitePage(RoutablePageMixin, Page):
 

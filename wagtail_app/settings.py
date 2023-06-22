@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'wagtail',
     'wagtail.contrib.routable_page',
     'wagtail.contrib.modeladmin',
-
+    'wagtail.contrib.settings',
     'webpack_boilerplate',
     'modelcluster',
     'taggit',
@@ -97,6 +97,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'wagtailmenus.context_processors.wagtailmenus',
+                'wagtail.contrib.settings.context_processors.settings',
                 'wagtail_app.site.context_processors.site_page'
             ],
         },
