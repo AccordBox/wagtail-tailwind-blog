@@ -44,13 +44,12 @@ class FormField(AbstractFormField):
     page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
 
 
-class FormPage(WagtailCaptchaEmailForm):
+class FormPage(WagtailCaptchaEmailForm, Page):
     thank_you_text = RichTextField(blank=True)
 
-    static_content = StreamField(BodyBlock(), blank=True, use_json_field=True)
-
+    body = StreamField(BodyBlock(), blank=True, use_json_field=True)
     content_panels = AbstractEmailForm.content_panels + [
-        FieldPanel("static_content"),
+        FieldPanel("body"),
         InlinePanel("form_fields", label="Form fields"),
         FieldPanel("thank_you_text", classname="full"),
         MultiFieldPanel(
