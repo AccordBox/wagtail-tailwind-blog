@@ -31,7 +31,6 @@ from .blocks import BodyBlock
 @register_setting
 class SocialMediaSettings(BaseSiteSetting):
     facebook = models.URLField(blank=True, null=True)
-    twitter = models.URLField(blank=True, null=True)
 
 class SitePage(RoutablePageMixin, Page):
 
@@ -48,7 +47,10 @@ class FormField(AbstractFormField):
 class FormPage(WagtailCaptchaEmailForm):
     thank_you_text = RichTextField(blank=True)
 
+    static_content = StreamField(BodyBlock(), blank=True, use_json_field=True)
+
     content_panels = AbstractEmailForm.content_panels + [
+        FieldPanel("static_content"),
         InlinePanel("form_fields", label="Form fields"),
         FieldPanel("thank_you_text", classname="full"),
         MultiFieldPanel(
