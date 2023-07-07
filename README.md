@@ -102,3 +102,8 @@ docker-compose build
 docker-compose up
 ### Make sure node version is:
 v18.16.0
+
+## Dumping Data
+
+docker-compose run --rm web python manage.py dumpdata --natural-foreign --indent 2 -e auth.permission -e contenttypes -e wagtailcore.GroupCollectionPermission -e wagtailcore.revision -e wagtailimages.rendition -e sessions -e wagtailsearch.indexentry -e wagtailcore.pagesubscription -e wagtailcore.modellogentry -e wagtailcore.pagelogentry > wagtail_app/site/fixtures/sitedemo2.json
+prettier --write wagtail_app/site/fixtures/sitedemo2.json
