@@ -104,8 +104,13 @@ docker-compose up
 v18.16.0
 
 ## Dumping Data
-
-docker-compose run --rm web python manage.py dumpdata --natural-foreign --indent 2 -e auth.permission -e contenttypes -e wagtailcore.GroupCollectionPermission -e wagtailcore.revision -e wagtailimages.rendition -e sessions -e wagtailsearch.indexentry -e wagtailcore.pagesubscription -e wagtailcore.modellogentry -e wagtailcore.pagelogentry > wagtail_app/site/fixtures/sitedemo.json
+docker-compose run --rm web python manage.py dumpdata --natural-foreign --indent 2 \
+    -e contenttypes -e auth.permission -e postgres_search.indexentry \
+    -e wagtailcore.groupcollectionpermission \
+    -e wagtailcore.grouppagepermission -e wagtailimages.rendition \
+    -e wagtailcore.pagerevision \
+    -e sessions > wagtail_app/site/fixtures/sitedemo.json
+# docker-compose run --rm web python manage.py dumpdata --natural-foreign --indent 2 -e auth.permission -e contenttypes -e wagtailcore.GroupCollectionPermission -e wagtailcore.revision -e wagtailimages.rendition -e sessions -e wagtailsearch.indexentry -e wagtailcore.pagesubscription -e wagtailcore.modellogentry -e wagtailcore.pagelogentry > wagtail_app/site/fixtures/sitedemo.json
 prettier --write wagtail_app/site/fixtures/sitedemo.json
 
 ## Squash migrations 

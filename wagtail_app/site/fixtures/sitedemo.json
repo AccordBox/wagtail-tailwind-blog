@@ -1,0 +1,660 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators",
+    "permissions": [
+      [
+        "access_admin",
+        "wagtailadmin",
+        "admin"
+      ],
+      [
+        "add_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "change_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "delete_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "add_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "change_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "delete_image",
+        "wagtailimages",
+        "image"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Editors",
+    "permissions": [
+      [
+        "access_admin",
+        "wagtailadmin",
+        "admin"
+      ],
+      [
+        "add_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "change_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "delete_document",
+        "wagtaildocs",
+        "document"
+      ],
+      [
+        "add_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "change_image",
+        "wagtailimages",
+        "image"
+      ],
+      [
+        "delete_image",
+        "wagtailimages",
+        "image"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$uWTDRiY3DKaAHDViR8ENsm$zw9dxGKqh1FIU55BY5asxoNk3/Sek8wSw2V3oTjCO3A=",
+    "last_login": "2023-07-06T23:59:15.463Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-10-27T02:55:23.317Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
+  "model": "wagtailusers.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "submitted_notifications": true,
+    "approved_notifications": true,
+    "rejected_notifications": true,
+    "updated_comments_notifications": true,
+    "preferred_language": "",
+    "current_time_zone": "",
+    "avatar": ""
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 4,
+  "fields": {
+    "collection": 1,
+    "title": "IMG_0658",
+    "file": "original_images/IMG_0658.jpg",
+    "width": 4032,
+    "height": 3024,
+    "created_at": "2023-06-25T19:27:01.388Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 846667,
+    "file_hash": "60ad7f6c9174bdec0b510fe65074d828a6a3acff"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 5,
+  "fields": {
+    "collection": 1,
+    "title": "IMG_0945",
+    "file": "original_images/IMG_0945.jpg",
+    "width": 622,
+    "height": 1104,
+    "created_at": "2023-06-25T19:27:04.654Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 45359,
+    "file_hash": "4bb07f75e75437232ba0946450905db6bee43afd"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 6,
+  "fields": {
+    "collection": 1,
+    "title": "IMG_1405",
+    "file": "original_images/IMG_1405.jpg",
+    "width": 4032,
+    "height": 3024,
+    "created_at": "2023-06-25T19:27:16.023Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 1080735,
+    "file_hash": "dfb09089fc1482c4ba81b88fb941cf1f580cb010"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 7,
+  "fields": {
+    "collection": 1,
+    "title": "IMG_1499",
+    "file": "original_images/IMG_1499.jpg",
+    "width": 4032,
+    "height": 3024,
+    "created_at": "2023-06-25T19:27:31.329Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 2001047,
+    "file_hash": "7581635d5848951d2f8507848eb43b51c01b8d1b"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 8,
+  "fields": {
+    "collection": 1,
+    "title": "IMG_0662",
+    "file": "original_images/IMG_0662.jpg",
+    "width": 3024,
+    "height": 4032,
+    "created_at": "2023-06-25T19:41:45.242Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 1344411,
+    "file_hash": "a14878fbd816666cee3ba3354f8c76aa52b22b03"
+  }
+},
+{
+  "model": "wagtailcore.locale",
+  "pk": 1,
+  "fields": {
+    "language_code": "en"
+  }
+},
+{
+  "model": "wagtailcore.site",
+  "pk": 2,
+  "fields": {
+    "hostname": "127.0.0.1",
+    "port": 8000,
+    "site_name": "",
+    "root_page": 34,
+    "is_default_site": true
+  }
+},
+{
+  "model": "wagtailcore.collection",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 0,
+    "name": "Root"
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 1,
+    "translation_key": "dd0206fb-3eb7-4064-8e4a-f1ae2a38bc0e",
+    "locale": 1,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": null,
+    "last_published_at": null,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Root",
+    "draft_title": "Root",
+    "slug": "root",
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
+    "url_path": "/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 2,
+  "fields": {
+    "path": "00010001",
+    "depth": 2,
+    "numchild": 0,
+    "translation_key": "14694ca5-6aa0-454a-8e8d-d3d3061a119b",
+    "locale": 1,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": null,
+    "last_published_at": null,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Welcome to your new Wagtail site!",
+    "draft_title": "Welcome to your new Wagtail site!",
+    "slug": "home",
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
+    "url_path": "/home/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 34,
+  "fields": {
+    "path": "00010002",
+    "depth": 2,
+    "numchild": 5,
+    "translation_key": "0dc037c9-2d5d-4aff-9bf3-27dad7a0e3fc",
+    "locale": 1,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2022-10-27T02:56:22.731Z",
+    "last_published_at": "2023-07-08T02:09:08.539Z",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "SitePage",
+    "draft_title": "SitePage",
+    "slug": "sitepage",
+    "content_type": [
+      "site",
+      "sitepage"
+    ],
+    "url_path": "/sitepage/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 39,
+  "fields": {
+    "path": "000100020005",
+    "depth": 3,
+    "numchild": 0,
+    "translation_key": "049298a7-03f9-4893-a5e5-19dcae038c0f",
+    "locale": 1,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2022-10-27T02:19:37.945Z",
+    "last_published_at": "2023-07-08T02:11:52.064Z",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Contact",
+    "draft_title": "Contact",
+    "slug": "contact",
+    "content_type": [
+      "site",
+      "formpage"
+    ],
+    "url_path": "/sitepage/contact/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": true,
+    "search_description": "",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.grouppagepermission",
+  "pk": 1,
+  "fields": {
+    "group": [
+      "Moderators"
+    ],
+    "page": 1,
+    "permission_type": "add"
+  }
+},
+{
+  "model": "wagtailcore.grouppagepermission",
+  "pk": 2,
+  "fields": {
+    "group": [
+      "Moderators"
+    ],
+    "page": 1,
+    "permission_type": "edit"
+  }
+},
+{
+  "model": "wagtailcore.grouppagepermission",
+  "pk": 3,
+  "fields": {
+    "group": [
+      "Moderators"
+    ],
+    "page": 1,
+    "permission_type": "publish"
+  }
+},
+{
+  "model": "wagtailcore.grouppagepermission",
+  "pk": 4,
+  "fields": {
+    "group": [
+      "Editors"
+    ],
+    "page": 1,
+    "permission_type": "add"
+  }
+},
+{
+  "model": "wagtailcore.grouppagepermission",
+  "pk": 5,
+  "fields": {
+    "group": [
+      "Editors"
+    ],
+    "page": 1,
+    "permission_type": "edit"
+  }
+},
+{
+  "model": "wagtailcore.grouppagepermission",
+  "pk": 6,
+  "fields": {
+    "group": [
+      "Moderators"
+    ],
+    "page": 1,
+    "permission_type": "lock"
+  }
+},
+{
+  "model": "wagtailcore.grouppagepermission",
+  "pk": 7,
+  "fields": {
+    "group": [
+      "Moderators"
+    ],
+    "page": 1,
+    "permission_type": "unlock"
+  }
+},
+{
+  "model": "wagtailcore.workflowpage",
+  "pk": 1,
+  "fields": {
+    "workflow": 1
+  }
+},
+{
+  "model": "wagtailcore.workflowtask",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "workflow": 1,
+    "task": 1
+  }
+},
+{
+  "model": "wagtailcore.task",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators approval",
+    "content_type": [
+      "wagtailcore",
+      "groupapprovaltask"
+    ],
+    "active": true
+  }
+},
+{
+  "model": "wagtailcore.workflow",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators approval",
+    "active": true
+  }
+},
+{
+  "model": "wagtailcore.groupapprovaltask",
+  "pk": 1,
+  "fields": {
+    "groups": [
+      [
+        "Moderators"
+      ]
+    ]
+  }
+},
+{
+  "model": "wagtailmenus.mainmenuitem",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "link_page": 39,
+    "link_url": null,
+    "url_append": "",
+    "handle": "",
+    "link_text": "",
+    "allow_subnav": true,
+    "menu": 1
+  }
+},
+{
+  "model": "wagtailmenus.mainmenu",
+  "pk": 1,
+  "fields": {
+    "site": [
+      "127.0.0.1",
+      8000
+    ],
+    "max_levels": 2
+  }
+},
+{
+  "model": "site.socialmediasettings",
+  "pk": 1,
+  "fields": {
+    "site": [
+      "127.0.0.1",
+      8000
+    ],
+    "facebook": null
+  }
+},
+{
+  "model": "site.sitepage",
+  "pk": 34,
+  "fields": {
+    "body": "[{\"id\": \"ad9335a4-ccf4-4626-a8ab-b64c04f8ffff\", \"type\": \"image_carousel\", \"value\": [{\"id\": \"44d89cb5-4c8b-4468-b5c7-dfdce8fbbdfa\", \"type\": \"item\", \"value\": 6}, {\"id\": \"164ee615-fe5c-4808-8a63-65f8e0d1753e\", \"type\": \"item\", \"value\": 7}, {\"id\": \"f7f78c50-7bbf-4830-8f59-a568859399b5\", \"type\": \"item\", \"value\": 4}]}, {\"id\": \"999446a3-5a5a-418f-8385-67b673198ef5\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"nyope\\\">Welcome to Holbrook Lawncare, your trusted partner for all your lawn care needs. We are a professional lawn care company committed to keeping your lawn healthy and beautiful throughout the year. Our team of certified professionals offers a wide range of services, including lawn mowing, fertilization, weed control, pest control, aeration, and more.</p><p data-block-key=\\\"52j9d\\\">At Holbrook Lawncare, we understand that every lawn is unique, and that&#x27;s why we provide customized solutions that cater to your lawn&#x27;s specific needs. Whether you require a one-time service or a comprehensive lawn care program, we have got you covered. Our team is dedicated to providing high-quality services that surpass your expectations, and we always aim for 100% customer satisfaction.</p><p data-block-key=\\\"3csh5\\\">We utilize only top-of-the-line equipment and products to ensure that your lawn is healthy and beautiful. Our team is well-trained to work efficiently and safely, and we always leave your property clean and organized. We believe in transparent pricing, and we offer competitive rates for all our services.</p><p data-block-key=\\\"bqkqq\\\">At Holbrook Lawncare, we are passionate about creating stunning outdoor spaces that you can enjoy with your loved ones. Contact us today to schedule a free consultation and let us help you achieve the lawn of your dreams!</p>\"}, {\"id\": \"3a575062-4b68-4fc2-abdc-c7cb03336026\", \"type\": \"testimonials\", \"value\": [{\"id\": \"e72a2585-e962-4d1d-b36a-fb67e55aa26d\", \"type\": \"item\", \"value\": {\"name\": \"<p data-block-key=\\\"sc1m7\\\">Sarah M</p>\", \"text\": \"<p data-block-key=\\\"ht92c\\\">I&#x27;ve been using Holbrook Lawncare for over a year now, and I couldn&#x27;t be happier with their services. My lawn has never looked better! Their team is professional, reliable, and always goes above and beyond to ensure my lawn is healthy and well-maintained. I highly recommend them!</p>\"}}, {\"id\": \"206dcc76-ce13-4238-a3f2-8e4f36426135\", \"type\": \"item\", \"value\": {\"name\": \"<p data-block-key=\\\"arydt\\\">John D</p>\", \"text\": \"<p data-block-key=\\\"uo9eu\\\">I had struggled with a weed-infested lawn for years until I hired Holbrook Lawncare. Their weed control services have been a game-changer! My lawn is now free from pesky weeds, and it looks amazing. The team is knowledgeable, friendly, and truly cares about the well-being of my lawn. Thank you, Holbrook Lawncare!</p>\"}}, {\"id\": \"47cf959e-011f-4ff8-97be-14695aca2e65\", \"type\": \"item\", \"value\": {\"name\": \"<p data-block-key=\\\"arydt\\\">Emily G</p>\", \"text\": \"<p data-block-key=\\\"uo9eu\\\">Holbrook Lawncare transformed my dull, patchy lawn into a lush, green paradise. Their fertilization and overseeding services worked wonders! The results exceeded my expectations, and I&#x27;m now proud of my beautiful lawn. The entire team is professional, responsive, and provides exceptional customer service. I highly recommend their services!</p>\"}}]}]"
+  }
+},
+{
+  "model": "site.formfield",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "clean_name": "name",
+    "label": "Name",
+    "field_type": "singleline",
+    "required": true,
+    "choices": "",
+    "default_value": "",
+    "help_text": "",
+    "page": 39
+  }
+},
+{
+  "model": "site.formfield",
+  "pk": 2,
+  "fields": {
+    "sort_order": 2,
+    "clean_name": "email",
+    "label": "Email",
+    "field_type": "email",
+    "required": true,
+    "choices": "",
+    "default_value": "",
+    "help_text": "",
+    "page": 39
+  }
+},
+{
+  "model": "site.formfield",
+  "pk": 3,
+  "fields": {
+    "sort_order": 3,
+    "clean_name": "message",
+    "label": "What service are you interested in?",
+    "field_type": "radio",
+    "required": true,
+    "choices": "Lawn Care, Snow Removal, Leaf Cleanup",
+    "default_value": "Lawn Care",
+    "help_text": "",
+    "page": 39
+  }
+},
+{
+  "model": "site.formfield",
+  "pk": 4,
+  "fields": {
+    "sort_order": 4,
+    "clean_name": "sample",
+    "label": "Questions/Concerns",
+    "field_type": "multiline",
+    "required": false,
+    "choices": "",
+    "default_value": "",
+    "help_text": "",
+    "page": 39
+  }
+},
+{
+  "model": "site.formfield",
+  "pk": 5,
+  "fields": {
+    "sort_order": 1,
+    "clean_name": "phone_number",
+    "label": "Phone Number",
+    "field_type": "singleline",
+    "required": true,
+    "choices": "",
+    "default_value": "",
+    "help_text": "",
+    "page": 39
+  }
+},
+{
+  "model": "site.formpage",
+  "pk": 39,
+  "fields": {
+    "to_address": "",
+    "from_address": "",
+    "subject": "",
+    "thank_you_text": "<p data-block-key=\"66j1f\">Thank you</p>",
+    "body": "[{\"id\": \"b871699c-fb92-455a-a1cd-b3af5251185b\", \"type\": \"image_text\", \"value\": {\"text\": \"<p data-block-key=\\\"3d1yl\\\">Obtaining a quote is the first step towards getting the lawn care and snow removal services you need. Our team is dedicated to providing you with an accurate and competitive quote to meet your specific requirements.</p><p data-block-key=\\\"2l21a\\\"></p><p data-block-key=\\\"ani6d\\\">Complete the form below, please add any relevant details about your property so that we can provide an accurate quote that will fit your needs.</p>\", \"image\": 6, \"title\": \"<p data-block-key=\\\"yyvvj\\\">Contact us Today for a Quote</p>\", \"reverse\": false}}]"
+  }
+}
+]
