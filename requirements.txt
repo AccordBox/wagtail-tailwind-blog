@@ -6,6 +6,7 @@ django-extensions==3.2.1
 wagtail-markdown==0.10.0
 python-markdown-math==0.8
 wagtail-django-recaptcha==1.0
+django-recaptcha==3.0.0
 django-crispy-forms==1.14.0
 crispy-tailwind==0.5.0
 wagtailmenus==3.1.3
