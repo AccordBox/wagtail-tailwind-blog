@@ -1,0 +1,20 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "11:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: django-extensions
+    versions:
+    - 3.1.1
+    - 3.1.2
+  - dependency-name: django-crispy-forms
+    versions:
+    - 1.11.0
+    - 1.11.1
+  - dependency-name: django-contrib-comments
+    versions:
+    - 2.0.0
